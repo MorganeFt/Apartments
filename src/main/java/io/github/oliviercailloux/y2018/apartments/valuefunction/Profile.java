@@ -15,6 +15,16 @@ public class Profile {
 	private boolean mustTele;
 	private boolean mustTerrace;
 	
+	private double weightFloorArea;
+	private double weightNbBedrooms;
+	private double weightNbSleeping;
+	private double weightNbBathroom;
+	private double weightNbMinNight;
+	private double weightPricePerNight;
+	private double weightWifi;
+	private double weightTele;
+	private double weightTerrace;
+	
 	private Profile() {}
 	
 	public static class Builder {

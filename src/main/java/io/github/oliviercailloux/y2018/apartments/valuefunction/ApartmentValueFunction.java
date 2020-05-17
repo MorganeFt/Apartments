@@ -99,6 +99,12 @@ public class ApartmentValueFunction {
 		this.nbMinNightSubjectiveValueWeight = 0.1;
 		this.teleSubjectiveValueWeight = 0.1;
 	}
+	
+	public ApartmentValueFunction(ProfileType type) {
+		Profile current = ProfileManager.getProfile(type);
+		
+		
+	}
 
 	/**
 	 * Set the function which will be used to calculate the subjective value of the
