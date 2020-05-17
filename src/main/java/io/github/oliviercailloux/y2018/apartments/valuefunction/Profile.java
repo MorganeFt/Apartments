@@ -15,6 +15,8 @@ public class Profile {
 	private boolean mustTele;
 	private boolean mustTerrace;
 	
+	private Profile() {}
+	
 	public static class Builder {
 
 		private Profile profileToBuild;
@@ -92,6 +94,42 @@ public class Profile {
 			mustTerraceKnown=true;
 			return this;
 		}
+	}
+
+	public double getMinFloorArea() {
+		return minFloorArea;
+	}
+
+	public int getMinNbBedrooms() {
+		return minNbBedrooms;
+	}
+
+	public int getMinNbSleeping() {
+		return minNbSleeping;
+	}
+
+	public int getMinNbBathroom() {
+		return minNbBathroom;
+	}
+
+	public int getMinNbMinNight() {
+		return minNbMinNight;
+	}
+
+	public double getMaxPricePerNight() {
+		return maxPricePerNight;
+	}
+
+	public boolean isMustWifi() {
+		return mustWifi;
+	}
+
+	public boolean isMustTele() {
+		return mustTele;
+	}
+
+	public boolean isMustTerrace() {
+		return mustTerrace;
 	}
 }
 
