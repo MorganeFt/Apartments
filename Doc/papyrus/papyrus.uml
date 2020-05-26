@@ -263,10 +263,7 @@
             <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_sy-7oJwuEeqGkeU796yVmw" source="org.eclipse.papyrus">
               <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_sy-7oZwuEeqGkeU796yVmw" key="nature" value="UML_Nature"/>
             </eAnnotations>
-            <ownedEnd xmi:type="uml:Property" xmi:id="_sy_isZwuEeqGkeU796yVmw" name="profile" type="_sCMNUJwtEeqGkeU796yVmw" association="_sy-UkJwuEeqGkeU796yVmw">
-              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KV8x8J06EeqrpIrBsKzVRw"/>
-              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KWF74J06EeqrpIrBsKzVRw" value="*"/>
-            </ownedEnd>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_sy_isZwuEeqGkeU796yVmw" name="profile" type="_sCMNUJwtEeqGkeU796yVmw" association="_sy-UkJwuEeqGkeU796yVmw"/>
           </packagedElement>
           <packagedElement xmi:type="uml:Association" xmi:id="_MX2OIJy_Eeqv_texJXdVtQ" memberEnd="_MYDCcJy_Eeqv_texJXdVtQ _MYDpgZy_Eeqv_texJXdVtQ">
             <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_MX3cQJy_Eeqv_texJXdVtQ" source="org.eclipse.papyrus">
@@ -282,6 +279,12 @@
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0DWesJ2eEeq5UMfZ1C8e7g"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0Dhd0J2eEeq5UMfZ1C8e7g" value="*"/>
             </ownedEnd>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_mcJQMJ6xEeqP0pJaau7NCw" memberEnd="_mcOvwJ6xEeqP0pJaau7NCw _mcP94Z6xEeqP0pJaau7NCw">
+            <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_mcM6kJ6xEeqP0pJaau7NCw" source="org.eclipse.papyrus">
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_mcM6kZ6xEeqP0pJaau7NCw" key="nature" value="UML_Nature"/>
+            </eAnnotations>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_mcP94Z6xEeqP0pJaau7NCw" name="questionmanger" type="_LbxAkJpzEeqmHpvW7B5p3g" association="_mcJQMJ6xEeqP0pJaau7NCw"/>
           </packagedElement>
         </packagedElement>
         <packagedElement xmi:type="uml:Package" xmi:id="_kG1I8JpvEeqmHpvW7B5p3g" name="Iteration4Java">
@@ -4143,46 +4146,26 @@
         <packagedElement xmi:type="uml:Dependency" xmi:id="_daH18JjmEeqYCK4Btw7kWQ" client="_pKHpMF_CEeqAAb4u4HLI7w" supplier="_ESBK8F_AEeqAAb4u4HLI7w"/>
         <packagedElement xmi:type="uml:Dependency" xmi:id="_0ZZGsJjpEeqYCK4Btw7kWQ" client="_d2M6YF_BEeqAAb4u4HLI7w" supplier="_JAqEUF_AEeqAAb4u4HLI7w"/>
         <packagedElement xmi:type="uml:Class" xmi:id="_q-Zh0J2dEeq5UMfZ1C8e7g" name="LinearApartmentValueFunction" visibility="public">
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_q-irwJ2dEeq5UMfZ1C8e7g" name="floorAreaValueFunction" visibility="private" isUnique="false"/>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_q-m9MJ2dEeq5UMfZ1C8e7g" name="nbBedroomsValueFunction" visibility="private" isUnique="false"/>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_q-oLUJ2dEeq5UMfZ1C8e7g" name="nbSleepingValueFunction" visibility="private" isUnique="false"/>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_q-oyYJ2dEeq5UMfZ1C8e7g" name="nbBathroomsValueFunction" visibility="private" isUnique="false"/>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_q-tD0J2dEeq5UMfZ1C8e7g" name="terraceValueFunction" visibility="private" isUnique="false"/>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_q-u5AJ2dEeq5UMfZ1C8e7g" name="floorAreaTerraceValueFunction" visibility="private" isUnique="false"/>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_q-wuMJ2dEeq5UMfZ1C8e7g" name="wifiValueFunction" visibility="private" isUnique="false"/>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_q-0_oJ2dEeq5UMfZ1C8e7g" name="pricePerNightValueFunction" visibility="private" isUnique="false"/>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_q-1msJ2dEeq5UMfZ1C8e7g" name="nbMinNightValueFunction" visibility="private" isUnique="false"/>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_q-2NwJ2dEeq5UMfZ1C8e7g" name="teleValueFunction" visibility="private" isUnique="false"/>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_q-200J2dEeq5UMfZ1C8e7g" name="floorAreaSubjectiveValueWeight" visibility="private" isUnique="false">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_6j0jABydEduyofBvg4RL2w"/>
-          </ownedAttribute>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_q-4C8J2dEeq5UMfZ1C8e7g" name="nbBedroomsSubjectiveValueWeight" visibility="private" isUnique="false">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_6j0jABydEduyofBvg4RL2w"/>
-          </ownedAttribute>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_q-7GQJ2dEeq5UMfZ1C8e7g" name="nbSleepingSubjectiveValueWeight" visibility="private" isUnique="false">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_6j0jABydEduyofBvg4RL2w"/>
-          </ownedAttribute>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_q-87cJ2dEeq5UMfZ1C8e7g" name="nbBathroomsSubjectiveValueWeight" visibility="private" isUnique="false">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_6j0jABydEduyofBvg4RL2w"/>
-          </ownedAttribute>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_q_Bz8J2dEeq5UMfZ1C8e7g" name="terraceSubjectiveValueWeight" visibility="private" isUnique="false">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_6j0jABydEduyofBvg4RL2w"/>
-          </ownedAttribute>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_q_Bz8Z2dEeq5UMfZ1C8e7g" name="floorAreaTerraceSubjectiveValueWeight" visibility="private" isUnique="false">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_6j0jABydEduyofBvg4RL2w"/>
-          </ownedAttribute>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_q_Bz8p2dEeq5UMfZ1C8e7g" name="wifiSubjectiveValueWeight" visibility="private" isUnique="false">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_6j0jABydEduyofBvg4RL2w"/>
-          </ownedAttribute>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_q_DpIJ2dEeq5UMfZ1C8e7g" name="pricePerNightSubjectiveValueWeight" visibility="private" isUnique="false">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_6j0jABydEduyofBvg4RL2w"/>
-          </ownedAttribute>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_q_FeUJ2dEeq5UMfZ1C8e7g" name="nbMinNightSubjectiveValueWeight" visibility="private" isUnique="false">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_6j0jABydEduyofBvg4RL2w"/>
-          </ownedAttribute>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_q_HTgJ2dEeq5UMfZ1C8e7g" name="teleSubjectiveValueWeight" visibility="private" isUnique="false">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_6j0jABydEduyofBvg4RL2w"/>
-          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_q-irwJ2dEeq5UMfZ1C8e7g" name="floorAreaValueFunction" visibility="private" type="_74b-8F_BEeqAAb4u4HLI7w" isUnique="false"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_q-m9MJ2dEeq5UMfZ1C8e7g" name="nbBedroomsValueFunction" visibility="private" type="_74b-8F_BEeqAAb4u4HLI7w" isUnique="false"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_q-oLUJ2dEeq5UMfZ1C8e7g" name="nbSleepingValueFunction" visibility="private" type="_74b-8F_BEeqAAb4u4HLI7w" isUnique="false"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_q-oyYJ2dEeq5UMfZ1C8e7g" name="nbBathroomsValueFunction" visibility="private" type="_74b-8F_BEeqAAb4u4HLI7w" isUnique="false"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_q-tD0J2dEeq5UMfZ1C8e7g" name="terraceValueFunction" visibility="private" type="_8udoAF_BEeqAAb4u4HLI7w" isUnique="false"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_q-u5AJ2dEeq5UMfZ1C8e7g" name="floorAreaTerraceValueFunction" visibility="private" type="_74b-8F_BEeqAAb4u4HLI7w" isUnique="false"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_q-wuMJ2dEeq5UMfZ1C8e7g" name="wifiValueFunction" visibility="private" type="_8udoAF_BEeqAAb4u4HLI7w" isUnique="false"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_q-0_oJ2dEeq5UMfZ1C8e7g" name="pricePerNightValueFunction" visibility="private" type="_oHIiMF_CEeqAAb4u4HLI7w" isUnique="false"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_q-1msJ2dEeq5UMfZ1C8e7g" name="nbMinNightValueFunction" visibility="private" type="_oHIiMF_CEeqAAb4u4HLI7w" isUnique="false"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_q-2NwJ2dEeq5UMfZ1C8e7g" name="teleValueFunction" visibility="private" type="_8udoAF_BEeqAAb4u4HLI7w" isUnique="false"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_q-200J2dEeq5UMfZ1C8e7g" name="floorAreaSubjectiveValueWeight" visibility="private" type="_WnYGwF_CEeqAAb4u4HLI7w" isUnique="false"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_q-4C8J2dEeq5UMfZ1C8e7g" name="nbBedroomsSubjectiveValueWeight" visibility="private" type="_WnYGwF_CEeqAAb4u4HLI7w" isUnique="false"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_q-7GQJ2dEeq5UMfZ1C8e7g" name="nbSleepingSubjectiveValueWeight" visibility="private" type="_WnYGwF_CEeqAAb4u4HLI7w" isUnique="false"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_q-87cJ2dEeq5UMfZ1C8e7g" name="nbBathroomsSubjectiveValueWeight" visibility="private" type="_WnYGwF_CEeqAAb4u4HLI7w" isUnique="false"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_q_Bz8J2dEeq5UMfZ1C8e7g" name="terraceSubjectiveValueWeight" visibility="private" type="_WnYGwF_CEeqAAb4u4HLI7w" isUnique="false"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_q_Bz8Z2dEeq5UMfZ1C8e7g" name="floorAreaTerraceSubjectiveValueWeight" visibility="private" type="_WnYGwF_CEeqAAb4u4HLI7w" isUnique="false"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_q_Bz8p2dEeq5UMfZ1C8e7g" name="wifiSubjectiveValueWeight" visibility="private" type="_WnYGwF_CEeqAAb4u4HLI7w" isUnique="false"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_q_DpIJ2dEeq5UMfZ1C8e7g" name="pricePerNightSubjectiveValueWeight" visibility="private" type="_WnYGwF_CEeqAAb4u4HLI7w" isUnique="false"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_q_FeUJ2dEeq5UMfZ1C8e7g" name="nbMinNightSubjectiveValueWeight" visibility="private" type="_WnYGwF_CEeqAAb4u4HLI7w" isUnique="false"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_q_HTgJ2dEeq5UMfZ1C8e7g" name="teleSubjectiveValueWeight" visibility="private" type="_WnYGwF_CEeqAAb4u4HLI7w" isUnique="false"/>
           <ownedAttribute xmi:type="uml:Property" xmi:id="_q_Lk8J2dEeq5UMfZ1C8e7g" name="LOGGER" visibility="private" isLeaf="true" isStatic="true" type="_ZCxH8F--EeqAAb4u4HLI7w" isUnique="false">
             <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_q_P2YJ2dEeq5UMfZ1C8e7g" name="defaultValue">
               <language>JAVA</language>
@@ -4872,6 +4855,180 @@
           <ownedOperation xmi:type="uml:Operation" xmi:id="_rD2CgJ2dEeq5UMfZ1C8e7g" name="getWifiValueFunction" visibility="public" method="_rD33sJ2dEeq5UMfZ1C8e7g">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_rD2pkJ2dEeq5UMfZ1C8e7g" direction="return"/>
           </ownedOperation>
+          <nestedClassifier xmi:type="uml:Class" xmi:id="_sCqHYJwtEeqGkeU796yVmw" name="Builder" visibility="public">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_sCu_4ZwtEeqGkeU796yVmw" name="profileToBuild" visibility="private" type="_sCMNUJwtEeqGkeU796yVmw" isUnique="false"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_sCvm8JwtEeqGkeU796yVmw" name="minFloorAreaKnown" visibility="private" isUnique="false">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_sCvm8ZwtEeqGkeU796yVmw" name="minNbBedroomsKnown" visibility="private" isUnique="false">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_sCwOAJwtEeqGkeU796yVmw" name="minNbSleepingKnown" visibility="private" isUnique="false">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_sCwOAZwtEeqGkeU796yVmw" name="minNbBathroomKnown" visibility="private" isUnique="false">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_sCwOApwtEeqGkeU796yVmw" name="minNbMinNightKnown" visibility="private" isUnique="false">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_sCw1EJwtEeqGkeU796yVmw" name="maxPricePerNightKnown" visibility="private" isUnique="false">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_sCw1EZwtEeqGkeU796yVmw" name="mustWifiKnown" visibility="private" isUnique="false">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_sCw1EpwtEeqGkeU796yVmw" name="mustTeleKnown" visibility="private" isUnique="false">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_sCxcIJwtEeqGkeU796yVmw" name="mustTerraceKnown" visibility="private" isUnique="false">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+            </ownedAttribute>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sC0fcZwtEeqGkeU796yVmw" name="Builder" specification="_sCyqQJwtEeqGkeU796yVmw">
+              <language>JAVA</language>
+              <body>&#xD;
+    profileToBuild = new Profile();&#xD;
+</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sC2UoZwtEeqGkeU796yVmw" name="build" specification="_sC1tkJwtEeqGkeU796yVmw">
+              <language>JAVA</language>
+              <body>&#xD;
+    Profile buildApartment = this.profileToBuild;&#xD;
+    this.profileToBuild = new Profile();&#xD;
+    return buildApartment;&#xD;
+</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sC3iwZwtEeqGkeU796yVmw" name="setMinFloorArea" specification="_sC27sJwtEeqGkeU796yVmw">
+              <language>JAVA</language>
+              <body>&#xD;
+    profileToBuild.minFloorArea = minFloorArea;&#xD;
+    minFloorAreaKnown = true;&#xD;
+    return this;&#xD;
+</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sC4w4ZwtEeqGkeU796yVmw" name="setMinNbBedrooms" specification="_sC3iwpwtEeqGkeU796yVmw">
+              <language>JAVA</language>
+              <body>&#xD;
+    profileToBuild.minNbBedrooms = minNbBedrooms;&#xD;
+    minNbBedroomsKnown = true;&#xD;
+    return this;&#xD;
+</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sC5_AZwtEeqGkeU796yVmw" name="setMinNbSleeping" specification="_sC5X8JwtEeqGkeU796yVmw">
+              <language>JAVA</language>
+              <body>&#xD;
+    profileToBuild.minNbSleeping = minNbSleeping;&#xD;
+    minNbSleepingKnown = true;&#xD;
+    return this;&#xD;
+</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sC6mEpwtEeqGkeU796yVmw" name="setMinNbBathroom" specification="_sC5_ApwtEeqGkeU796yVmw">
+              <language>JAVA</language>
+              <body>&#xD;
+    profileToBuild.minNbBathroom = minNbBathroom;&#xD;
+    minNbBathroomKnown = true;&#xD;
+    return this;&#xD;
+</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sC70MZwtEeqGkeU796yVmw" name="setMinNbMinNight" specification="_sC7NIJwtEeqGkeU796yVmw">
+              <language>JAVA</language>
+              <body>&#xD;
+    profileToBuild.minNbMinNight = minNbMinNight;&#xD;
+    minNbMinNightKnown = true;&#xD;
+    return this;&#xD;
+</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sC8bQpwtEeqGkeU796yVmw" name="setMaxPricePerNight" specification="_sC70MpwtEeqGkeU796yVmw">
+              <language>JAVA</language>
+              <body>&#xD;
+    profileToBuild.maxPricePerNight = maxPricePerNight;&#xD;
+    maxPricePerNightKnown = true;&#xD;
+    return this;&#xD;
+</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sC9pYZwtEeqGkeU796yVmw" name="setMustWifi" specification="_sC9CUJwtEeqGkeU796yVmw">
+              <language>JAVA</language>
+              <body>&#xD;
+    profileToBuild.mustWifi = mustWifi;&#xD;
+    mustWifiKnown = true;&#xD;
+    return this;&#xD;
+</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sDBTwJwtEeqGkeU796yVmw" name="setMustTele" specification="_sC-QcJwtEeqGkeU796yVmw">
+              <language>JAVA</language>
+              <body>&#xD;
+    profileToBuild.mustTele = mustTele;&#xD;
+    mustTeleKnown = true;&#xD;
+    return this;&#xD;
+</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sDCh4JwtEeqGkeU796yVmw" name="setMustTerrace" specification="_sDB60JwtEeqGkeU796yVmw">
+              <language>JAVA</language>
+              <body>&#xD;
+    profileToBuild.mustTerrace = mustTerrace;&#xD;
+    mustTerraceKnown = true;&#xD;
+    return this;&#xD;
+</body>
+            </ownedBehavior>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_sCyqQJwtEeqGkeU796yVmw" name="Builder" visibility="public" method="_sC0fcZwtEeqGkeU796yVmw"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_sC1tkJwtEeqGkeU796yVmw" name="build" visibility="public" method="_sC2UoZwtEeqGkeU796yVmw">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_sC2UoJwtEeqGkeU796yVmw" type="_sCMNUJwtEeqGkeU796yVmw" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_sC27sJwtEeqGkeU796yVmw" name="setMinFloorArea" visibility="public" method="_sC3iwZwtEeqGkeU796yVmw">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_sC27sZwtEeqGkeU796yVmw" type="_epPEoJwsEeqGkeU796yVmw" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_sC3iwJwtEeqGkeU796yVmw" name="minFloorArea">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_6j0jABydEduyofBvg4RL2w"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_sC3iwpwtEeqGkeU796yVmw" name="setMinNbBedrooms" visibility="public" method="_sC4w4ZwtEeqGkeU796yVmw">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_sC4J0JwtEeqGkeU796yVmw" type="_epPEoJwsEeqGkeU796yVmw" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_sC4w4JwtEeqGkeU796yVmw" name="minNbBedrooms">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_sC5X8JwtEeqGkeU796yVmw" name="setMinNbSleeping" visibility="public" method="_sC5_AZwtEeqGkeU796yVmw">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_sC5X8ZwtEeqGkeU796yVmw" type="_epPEoJwsEeqGkeU796yVmw" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_sC5_AJwtEeqGkeU796yVmw" name="minNbSleeping">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_sC5_ApwtEeqGkeU796yVmw" name="setMinNbBathroom" visibility="public" method="_sC6mEpwtEeqGkeU796yVmw">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_sC6mEJwtEeqGkeU796yVmw" type="_epPEoJwsEeqGkeU796yVmw" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_sC6mEZwtEeqGkeU796yVmw" name="minNbBathroom">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_sC7NIJwtEeqGkeU796yVmw" name="setMinNbMinNight" visibility="public" method="_sC70MZwtEeqGkeU796yVmw">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_sC7NIZwtEeqGkeU796yVmw" type="_epPEoJwsEeqGkeU796yVmw" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_sC70MJwtEeqGkeU796yVmw" name="minNbMinNight">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_sC70MpwtEeqGkeU796yVmw" name="setMaxPricePerNight" visibility="public" method="_sC8bQpwtEeqGkeU796yVmw">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_sC8bQJwtEeqGkeU796yVmw" type="_epPEoJwsEeqGkeU796yVmw" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_sC8bQZwtEeqGkeU796yVmw" name="maxPricePerNight">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_6j0jABydEduyofBvg4RL2w"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_sC9CUJwtEeqGkeU796yVmw" name="setMustWifi" visibility="public" method="_sC9pYZwtEeqGkeU796yVmw">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_sC9CUZwtEeqGkeU796yVmw" type="_epPEoJwsEeqGkeU796yVmw" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_sC9pYJwtEeqGkeU796yVmw" name="mustWifi">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_sC-QcJwtEeqGkeU796yVmw" name="setMustTele" visibility="public" method="_sDBTwJwtEeqGkeU796yVmw">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_sC-3gJwtEeqGkeU796yVmw" type="_epPEoJwsEeqGkeU796yVmw" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_sDAssJwtEeqGkeU796yVmw" name="mustTele">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_sDB60JwtEeqGkeU796yVmw" name="setMustTerrace" visibility="public" method="_sDCh4JwtEeqGkeU796yVmw">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_sDB60ZwtEeqGkeU796yVmw" type="_epPEoJwsEeqGkeU796yVmw" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_sDB60pwtEeqGkeU796yVmw" name="mustTerrace">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+              </ownedParameter>
+            </ownedOperation>
+          </nestedClassifier>
         </packagedElement>
         <packagedElement xmi:type="uml:Dependency" xmi:id="_K7CHoJjqEeqYCK4Btw7kWQ" client="_d2M6YF_BEeqAAb4u4HLI7w" supplier="_QgD_sF_BEeqAAb4u4HLI7w"/>
         <packagedElement xmi:type="uml:Dependency" xmi:id="_B48moJjrEeqYCK4Btw7kWQ" client="_d2M6YF_BEeqAAb4u4HLI7w" supplier="_1QqroF-_EeqAAb4u4HLI7w"/>
@@ -4896,11 +5053,14 @@
             <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_96S2UJw4EeqGkeU796yVmw" name="COUPLE"/>
           </packagedElement>
           <packagedElement xmi:type="uml:Dependency" xmi:id="_PN-OQJpwEeqmHpvW7B5p3g" client="_mJBTIIY3Eeqw9PFqD2CRLA" supplier="_G02nMJpwEeqmHpvW7B5p3g"/>
-          <packagedElement xmi:type="uml:Class" xmi:id="_LbxAkJpzEeqmHpvW7B5p3g" name="Question">
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_oF7JoJy9Eeqv_texJXdVtQ" name="question" visibility="private" type="_jCLbwJp0EeqmHpvW7B5p3g"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_LbxAkJpzEeqmHpvW7B5p3g" name="QuestionManger">
             <ownedAttribute xmi:type="uml:Property" xmi:id="_MYDCcJy_Eeqv_texJXdVtQ" name="questiontype" type="_jCLbwJp0EeqmHpvW7B5p3g" association="_MX2OIJy_Eeqv_texJXdVtQ">
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MYDCcZy_Eeqv_texJXdVtQ"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MYDpgJy_Eeqv_texJXdVtQ" value="*"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_mcOvwJ6xEeqP0pJaau7NCw" name="questiondoubledouble" type="_XHabMJ2bEeq5UMfZ1C8e7g" aggregation="composite" association="_mcJQMJ6xEeqP0pJaau7NCw">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mcPW0J6xEeqP0pJaau7NCw"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mcP94J6xEeqP0pJaau7NCw" value="1"/>
             </ownedAttribute>
             <ownedOperation xmi:type="uml:Operation" xmi:id="_30oowJy-Eeqv_texJXdVtQ" name="getChoices"/>
             <ownedOperation xmi:type="uml:Operation" xmi:id="_DsoKcJy_Eeqv_texJXdVtQ" name="resolve_" isStatic="true">
@@ -4928,81 +5088,8 @@
             <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_-VPbAJw6EeqGkeU796yVmw" name="PREF_AREA_PRICE_FEATRS"/>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_sCMNUJwtEeqGkeU796yVmw" name="Profile" visibility="public">
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_sCPQoJwtEeqGkeU796yVmw" name="minFloorArea" visibility="private" isUnique="false">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_6j0jABydEduyofBvg4RL2w"/>
-            </ownedAttribute>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_sCP3sJwtEeqGkeU796yVmw" name="minNbBedrooms" visibility="private" isUnique="false">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-            </ownedAttribute>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_sCP3sZwtEeqGkeU796yVmw" name="minNbSleeping" visibility="private" isUnique="false">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-            </ownedAttribute>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_sCRs4JwtEeqGkeU796yVmw" name="minNbBathroom" visibility="private" isUnique="false">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-            </ownedAttribute>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_sCST8JwtEeqGkeU796yVmw" name="minNbMinNight" visibility="private" isUnique="false">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-            </ownedAttribute>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_sCS7AJwtEeqGkeU796yVmw" name="maxFloorArea" visibility="private" isUnique="false">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_6j0jABydEduyofBvg4RL2w"/>
-            </ownedAttribute>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_sCS7AZwtEeqGkeU796yVmw" name="maxNbBedrooms" visibility="private" isUnique="false">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-            </ownedAttribute>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_sCUJIJwtEeqGkeU796yVmw" name="maxNbSleeping" visibility="private" isUnique="false">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-            </ownedAttribute>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_sCUwMJwtEeqGkeU796yVmw" name="maxNbBathroom" visibility="private" isUnique="false">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-            </ownedAttribute>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_sCUwMZwtEeqGkeU796yVmw" name="maxNbMinNight" visibility="private" isUnique="false">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-            </ownedAttribute>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_sCcE8JwtEeqGkeU796yVmw" name="minPricePerNight" visibility="private" isUnique="false">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_6j0jABydEduyofBvg4RL2w"/>
-            </ownedAttribute>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_sCcE8ZwtEeqGkeU796yVmw" name="maxPricePerNight" visibility="private" isUnique="false">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_6j0jABydEduyofBvg4RL2w"/>
-            </ownedAttribute>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_sCcsAJwtEeqGkeU796yVmw" name="mustWifi" visibility="private" isUnique="false">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
-            </ownedAttribute>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_sCcsAZwtEeqGkeU796yVmw" name="mustTele" visibility="private" isUnique="false">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
-            </ownedAttribute>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_sCcsApwtEeqGkeU796yVmw" name="mustTerrace" visibility="private" isUnique="false">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
-            </ownedAttribute>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_sCcsA5wtEeqGkeU796yVmw" name="weightFloorArea" visibility="private" isUnique="false">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_6j0jABydEduyofBvg4RL2w"/>
-            </ownedAttribute>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_sCdTEJwtEeqGkeU796yVmw" name="weightNbBedrooms" visibility="private" isUnique="false">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_6j0jABydEduyofBvg4RL2w"/>
-            </ownedAttribute>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_sCehMJwtEeqGkeU796yVmw" name="weightNbSleeping" visibility="private" isUnique="false">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_6j0jABydEduyofBvg4RL2w"/>
-            </ownedAttribute>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_sCehMZwtEeqGkeU796yVmw" name="weightNbBathroom" visibility="private" isUnique="false">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_6j0jABydEduyofBvg4RL2w"/>
-            </ownedAttribute>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_sCfIQJwtEeqGkeU796yVmw" name="weightNbMinNight" visibility="private" isUnique="false">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_6j0jABydEduyofBvg4RL2w"/>
-            </ownedAttribute>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_sCg9cJwtEeqGkeU796yVmw" name="weightPricePerNight" visibility="private" isUnique="false">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_6j0jABydEduyofBvg4RL2w"/>
-            </ownedAttribute>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_sCiyoJwtEeqGkeU796yVmw" name="weightWifi" visibility="private" isUnique="false">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_6j0jABydEduyofBvg4RL2w"/>
-            </ownedAttribute>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_sCjZsJwtEeqGkeU796yVmw" name="weightTele" visibility="private" isUnique="false">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_6j0jABydEduyofBvg4RL2w"/>
-            </ownedAttribute>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_sCkAwJwtEeqGkeU796yVmw" name="weightTerrace" visibility="private" isUnique="false">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_6j0jABydEduyofBvg4RL2w"/>
-            </ownedAttribute>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_sy-7opwuEeqGkeU796yVmw" name="question" type="_LbxAkJpzEeqmHpvW7B5p3g" aggregation="composite" association="_sy-UkJwuEeqGkeU796yVmw">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_sy-7opwuEeqGkeU796yVmw" name="question" type="_XHabMJ2bEeq5UMfZ1C8e7g" aggregation="composite" association="_sy-UkJwuEeqGkeU796yVmw">
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_sy-7o5wuEeqGkeU796yVmw"/>
-              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_sy_isJwuEeqGkeU796yVmw" value="*"/>
             </ownedAttribute>
             <ownedAttribute xmi:type="uml:Property" xmi:id="_xlq7UJ2eEeq5UMfZ1C8e7g" name="linearapartmentvaluefunction" type="_q-Zh0J2dEeq5UMfZ1C8e7g" association="_xllbwJ2eEeq5UMfZ1C8e7g">
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_xlriYJ2eEeq5UMfZ1C8e7g"/>
@@ -5283,207 +5370,11 @@
                 <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EEList"/>
               </ownedParameter>
             </ownedOperation>
-            <ownedOperation xmi:type="uml:Operation" xmi:id="_je43MJ04EeqrpIrBsKzVRw" name="toAVF">
-              <ownedParameter xmi:type="uml:Parameter" xmi:id="_oq0JgJ04EeqrpIrBsKzVRw" name="builtAVF" visibility="public" type="_72rEYF_BEeqAAb4u4HLI7w" direction="return" effect="create"/>
-            </ownedOperation>
-            <nestedClassifier xmi:type="uml:Class" xmi:id="_sCqHYJwtEeqGkeU796yVmw" name="Builder" visibility="public">
-              <ownedAttribute xmi:type="uml:Property" xmi:id="_sCu_4ZwtEeqGkeU796yVmw" name="profileToBuild" visibility="private" type="_sCMNUJwtEeqGkeU796yVmw" isUnique="false"/>
-              <ownedAttribute xmi:type="uml:Property" xmi:id="_sCvm8JwtEeqGkeU796yVmw" name="minFloorAreaKnown" visibility="private" isUnique="false">
-                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
-              </ownedAttribute>
-              <ownedAttribute xmi:type="uml:Property" xmi:id="_sCvm8ZwtEeqGkeU796yVmw" name="minNbBedroomsKnown" visibility="private" isUnique="false">
-                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
-              </ownedAttribute>
-              <ownedAttribute xmi:type="uml:Property" xmi:id="_sCwOAJwtEeqGkeU796yVmw" name="minNbSleepingKnown" visibility="private" isUnique="false">
-                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
-              </ownedAttribute>
-              <ownedAttribute xmi:type="uml:Property" xmi:id="_sCwOAZwtEeqGkeU796yVmw" name="minNbBathroomKnown" visibility="private" isUnique="false">
-                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
-              </ownedAttribute>
-              <ownedAttribute xmi:type="uml:Property" xmi:id="_sCwOApwtEeqGkeU796yVmw" name="minNbMinNightKnown" visibility="private" isUnique="false">
-                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
-              </ownedAttribute>
-              <ownedAttribute xmi:type="uml:Property" xmi:id="_sCw1EJwtEeqGkeU796yVmw" name="maxPricePerNightKnown" visibility="private" isUnique="false">
-                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
-              </ownedAttribute>
-              <ownedAttribute xmi:type="uml:Property" xmi:id="_sCw1EZwtEeqGkeU796yVmw" name="mustWifiKnown" visibility="private" isUnique="false">
-                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
-              </ownedAttribute>
-              <ownedAttribute xmi:type="uml:Property" xmi:id="_sCw1EpwtEeqGkeU796yVmw" name="mustTeleKnown" visibility="private" isUnique="false">
-                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
-              </ownedAttribute>
-              <ownedAttribute xmi:type="uml:Property" xmi:id="_sCxcIJwtEeqGkeU796yVmw" name="mustTerraceKnown" visibility="private" isUnique="false">
-                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
-              </ownedAttribute>
-              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sC0fcZwtEeqGkeU796yVmw" name="Builder" specification="_sCyqQJwtEeqGkeU796yVmw">
-                <language>JAVA</language>
-                <body>&#xD;
-    profileToBuild = new Profile();&#xD;
-</body>
-              </ownedBehavior>
-              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sC2UoZwtEeqGkeU796yVmw" name="build" specification="_sC1tkJwtEeqGkeU796yVmw">
-                <language>JAVA</language>
-                <body>&#xD;
-    Profile buildApartment = this.profileToBuild;&#xD;
-    this.profileToBuild = new Profile();&#xD;
-    return buildApartment;&#xD;
-</body>
-              </ownedBehavior>
-              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sC3iwZwtEeqGkeU796yVmw" name="setMinFloorArea" specification="_sC27sJwtEeqGkeU796yVmw">
-                <language>JAVA</language>
-                <body>&#xD;
-    profileToBuild.minFloorArea = minFloorArea;&#xD;
-    minFloorAreaKnown = true;&#xD;
-    return this;&#xD;
-</body>
-              </ownedBehavior>
-              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sC4w4ZwtEeqGkeU796yVmw" name="setMinNbBedrooms" specification="_sC3iwpwtEeqGkeU796yVmw">
-                <language>JAVA</language>
-                <body>&#xD;
-    profileToBuild.minNbBedrooms = minNbBedrooms;&#xD;
-    minNbBedroomsKnown = true;&#xD;
-    return this;&#xD;
-</body>
-              </ownedBehavior>
-              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sC5_AZwtEeqGkeU796yVmw" name="setMinNbSleeping" specification="_sC5X8JwtEeqGkeU796yVmw">
-                <language>JAVA</language>
-                <body>&#xD;
-    profileToBuild.minNbSleeping = minNbSleeping;&#xD;
-    minNbSleepingKnown = true;&#xD;
-    return this;&#xD;
-</body>
-              </ownedBehavior>
-              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sC6mEpwtEeqGkeU796yVmw" name="setMinNbBathroom" specification="_sC5_ApwtEeqGkeU796yVmw">
-                <language>JAVA</language>
-                <body>&#xD;
-    profileToBuild.minNbBathroom = minNbBathroom;&#xD;
-    minNbBathroomKnown = true;&#xD;
-    return this;&#xD;
-</body>
-              </ownedBehavior>
-              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sC70MZwtEeqGkeU796yVmw" name="setMinNbMinNight" specification="_sC7NIJwtEeqGkeU796yVmw">
-                <language>JAVA</language>
-                <body>&#xD;
-    profileToBuild.minNbMinNight = minNbMinNight;&#xD;
-    minNbMinNightKnown = true;&#xD;
-    return this;&#xD;
-</body>
-              </ownedBehavior>
-              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sC8bQpwtEeqGkeU796yVmw" name="setMaxPricePerNight" specification="_sC70MpwtEeqGkeU796yVmw">
-                <language>JAVA</language>
-                <body>&#xD;
-    profileToBuild.maxPricePerNight = maxPricePerNight;&#xD;
-    maxPricePerNightKnown = true;&#xD;
-    return this;&#xD;
-</body>
-              </ownedBehavior>
-              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sC9pYZwtEeqGkeU796yVmw" name="setMustWifi" specification="_sC9CUJwtEeqGkeU796yVmw">
-                <language>JAVA</language>
-                <body>&#xD;
-    profileToBuild.mustWifi = mustWifi;&#xD;
-    mustWifiKnown = true;&#xD;
-    return this;&#xD;
-</body>
-              </ownedBehavior>
-              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sDBTwJwtEeqGkeU796yVmw" name="setMustTele" specification="_sC-QcJwtEeqGkeU796yVmw">
-                <language>JAVA</language>
-                <body>&#xD;
-    profileToBuild.mustTele = mustTele;&#xD;
-    mustTeleKnown = true;&#xD;
-    return this;&#xD;
-</body>
-              </ownedBehavior>
-              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sDCh4JwtEeqGkeU796yVmw" name="setMustTerrace" specification="_sDB60JwtEeqGkeU796yVmw">
-                <language>JAVA</language>
-                <body>&#xD;
-    profileToBuild.mustTerrace = mustTerrace;&#xD;
-    mustTerraceKnown = true;&#xD;
-    return this;&#xD;
-</body>
-              </ownedBehavior>
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_sCyqQJwtEeqGkeU796yVmw" name="Builder" visibility="public" method="_sC0fcZwtEeqGkeU796yVmw"/>
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_sC1tkJwtEeqGkeU796yVmw" name="build" visibility="public" method="_sC2UoZwtEeqGkeU796yVmw">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_sC2UoJwtEeqGkeU796yVmw" type="_sCMNUJwtEeqGkeU796yVmw" direction="return"/>
-              </ownedOperation>
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_sC27sJwtEeqGkeU796yVmw" name="setMinFloorArea" visibility="public" method="_sC3iwZwtEeqGkeU796yVmw">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_sC27sZwtEeqGkeU796yVmw" type="_epPEoJwsEeqGkeU796yVmw" direction="return"/>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_sC3iwJwtEeqGkeU796yVmw" name="minFloorArea">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_6j0jABydEduyofBvg4RL2w"/>
-                </ownedParameter>
-              </ownedOperation>
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_sC3iwpwtEeqGkeU796yVmw" name="setMinNbBedrooms" visibility="public" method="_sC4w4ZwtEeqGkeU796yVmw">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_sC4J0JwtEeqGkeU796yVmw" type="_epPEoJwsEeqGkeU796yVmw" direction="return"/>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_sC4w4JwtEeqGkeU796yVmw" name="minNbBedrooms">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-                </ownedParameter>
-              </ownedOperation>
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_sC5X8JwtEeqGkeU796yVmw" name="setMinNbSleeping" visibility="public" method="_sC5_AZwtEeqGkeU796yVmw">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_sC5X8ZwtEeqGkeU796yVmw" type="_epPEoJwsEeqGkeU796yVmw" direction="return"/>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_sC5_AJwtEeqGkeU796yVmw" name="minNbSleeping">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-                </ownedParameter>
-              </ownedOperation>
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_sC5_ApwtEeqGkeU796yVmw" name="setMinNbBathroom" visibility="public" method="_sC6mEpwtEeqGkeU796yVmw">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_sC6mEJwtEeqGkeU796yVmw" type="_epPEoJwsEeqGkeU796yVmw" direction="return"/>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_sC6mEZwtEeqGkeU796yVmw" name="minNbBathroom">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-                </ownedParameter>
-              </ownedOperation>
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_sC7NIJwtEeqGkeU796yVmw" name="setMinNbMinNight" visibility="public" method="_sC70MZwtEeqGkeU796yVmw">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_sC7NIZwtEeqGkeU796yVmw" type="_epPEoJwsEeqGkeU796yVmw" direction="return"/>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_sC70MJwtEeqGkeU796yVmw" name="minNbMinNight">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-                </ownedParameter>
-              </ownedOperation>
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_sC70MpwtEeqGkeU796yVmw" name="setMaxPricePerNight" visibility="public" method="_sC8bQpwtEeqGkeU796yVmw">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_sC8bQJwtEeqGkeU796yVmw" type="_epPEoJwsEeqGkeU796yVmw" direction="return"/>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_sC8bQZwtEeqGkeU796yVmw" name="maxPricePerNight">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_6j0jABydEduyofBvg4RL2w"/>
-                </ownedParameter>
-              </ownedOperation>
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_sC9CUJwtEeqGkeU796yVmw" name="setMustWifi" visibility="public" method="_sC9pYZwtEeqGkeU796yVmw">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_sC9CUZwtEeqGkeU796yVmw" type="_epPEoJwsEeqGkeU796yVmw" direction="return"/>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_sC9pYJwtEeqGkeU796yVmw" name="mustWifi">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
-                </ownedParameter>
-              </ownedOperation>
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_sC-QcJwtEeqGkeU796yVmw" name="setMustTele" visibility="public" method="_sDBTwJwtEeqGkeU796yVmw">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_sC-3gJwtEeqGkeU796yVmw" type="_epPEoJwsEeqGkeU796yVmw" direction="return"/>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_sDAssJwtEeqGkeU796yVmw" name="mustTele">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
-                </ownedParameter>
-              </ownedOperation>
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_sDB60JwtEeqGkeU796yVmw" name="setMustTerrace" visibility="public" method="_sDCh4JwtEeqGkeU796yVmw">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_sDB60ZwtEeqGkeU796yVmw" type="_epPEoJwsEeqGkeU796yVmw" direction="return"/>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_sDB60pwtEeqGkeU796yVmw" name="mustTerrace">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
-                </ownedParameter>
-              </ownedOperation>
-            </nestedClassifier>
-          </packagedElement>
-          <packagedElement xmi:type="uml:Class" xmi:id="_TpE60J2VEeq5UMfZ1C8e7g" name="QuestionDoubleBoolean">
-            <generalization xmi:type="uml:Generalization" xmi:id="_maEs8J2bEeq5UMfZ1C8e7g" general="_LbxAkJpzEeqmHpvW7B5p3g"/>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_n9w8AJ2VEeq5UMfZ1C8e7g" name="pairParam1" visibility="public"/>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_xSz_0J2VEeq5UMfZ1C8e7g" name="pairParam2" visibility="public"/>
-            <ownedOperation xmi:type="uml:Operation" xmi:id="_mIfh4JpzEeqmHpvW7B5p3g" name="resolve" isStatic="true" isAbstract="true">
-              <ownedParameter xmi:type="uml:Parameter" xmi:id="_7mMZkJpzEeqmHpvW7B5p3g" name="avf" visibility="public" type="_72rEYF_BEeqAAb4u4HLI7w" effect="update"/>
-              <ownedParameter xmi:type="uml:Parameter" xmi:id="_B9mnkJp0EeqmHpvW7B5p3g" name="answerPair" visibility="public" effect="read"/>
-              <ownedParameter xmi:type="uml:Parameter" xmi:id="_BtFz0J08EeqrpIrBsKzVRw" name="updatedAVF" visibility="public" type="_72rEYF_BEeqAAb4u4HLI7w" direction="return" effect="create"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_je43MJ04EeqrpIrBsKzVRw" name="getAVF">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_oq0JgJ04EeqrpIrBsKzVRw" name="builtAVF" visibility="public" type="_q-Zh0J2dEeq5UMfZ1C8e7g" direction="return" effect="create"/>
             </ownedOperation>
           </packagedElement>
-          <packagedElement xmi:type="uml:Class" xmi:id="_g0UNEJ2VEeq5UMfZ1C8e7g" name="QuestionBestCriteria">
-            <generalization xmi:type="uml:Generalization" xmi:id="_nRW6QJ2bEeq5UMfZ1C8e7g" general="_LbxAkJpzEeqmHpvW7B5p3g"/>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_Bv5n4J2XEeq5UMfZ1C8e7g" name="criterias" visibility="public">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EEList"/>
-            </ownedAttribute>
-            <ownedOperation xmi:type="uml:Operation" xmi:id="_dAcn8J2XEeq5UMfZ1C8e7g" name="resolve" isStatic="true" isAbstract="true">
-              <ownedParameter xmi:type="uml:Parameter" xmi:id="_dAcn8Z2XEeq5UMfZ1C8e7g" name="avf" visibility="public" type="_72rEYF_BEeqAAb4u4HLI7w" effect="update"/>
-              <ownedParameter xmi:type="uml:Parameter" xmi:id="_dAcn8p2XEeq5UMfZ1C8e7g" name="criteria" visibility="public" type="__lgUEGVHEeq0U8CyxWHVBA" effect="read"/>
-              <ownedParameter xmi:type="uml:Parameter" xmi:id="_dAcn852XEeq5UMfZ1C8e7g" name="updatedAVF" visibility="public" type="_72rEYF_BEeqAAb4u4HLI7w" direction="return" effect="create"/>
-            </ownedOperation>
-          </packagedElement>
-          <packagedElement xmi:type="uml:Class" xmi:id="_XHabMJ2bEeq5UMfZ1C8e7g" name="QuestionDoubleDouble">
-            <generalization xmi:type="uml:Generalization" xmi:id="_ocDLwJ2bEeq5UMfZ1C8e7g" general="_LbxAkJpzEeqmHpvW7B5p3g"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_XHabMJ2bEeq5UMfZ1C8e7g" name="QuestionPriceArea">
             <ownedAttribute xmi:type="uml:Property" xmi:id="_XHabMZ2bEeq5UMfZ1C8e7g" name="pairParam1" visibility="public"/>
             <ownedAttribute xmi:type="uml:Property" xmi:id="_XHabMp2bEeq5UMfZ1C8e7g" name="pairParam2" visibility="public"/>
             <ownedOperation xmi:type="uml:Operation" xmi:id="_XHabM52bEeq5UMfZ1C8e7g" name="resolve" isStatic="true" isAbstract="true">
