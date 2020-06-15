@@ -66,35 +66,6 @@
           <body>ApartmentValueFunction uses all PartialValueFunction implementations and all enumerations&#xD;
 </body>
         </ownedComment>
-        <packagedElement xmi:type="uml:Package" xmi:id="_2RqOEGrBEeqG6NsufvOKcA" name="UCD_CreateApartment">
-          <packagedElement xmi:type="uml:Interaction" xmi:id="_osnYYGSlEeqldqZ7K2B8Ig" name="CreateApartment">
-            <ownedUseCase xmi:type="uml:UseCase" xmi:id="_ttc1AGSlEeqldqZ7K2B8Ig" name="Fill fields">
-              <ownedUseCase xmi:type="uml:UseCase" xmi:id="_wQhOsGSlEeqldqZ7K2B8Ig" name="Fill the mandatory fields">
-                <ownedUseCase xmi:type="uml:UseCase" xmi:id="_2CmiEGSlEeqldqZ7K2B8Ig" name="Fill the &quot;Title&quot; field"/>
-                <ownedUseCase xmi:type="uml:UseCase" xmi:id="_5Cv5UGSlEeqldqZ7K2B8Ig" name="Fill the &quot;Address&quot; field"/>
-                <ownedUseCase xmi:type="uml:UseCase" xmi:id="_8pc6QGSlEeqldqZ7K2B8Ig" name="Fill the &quot;Floor&quot; field"/>
-              </ownedUseCase>
-              <ownedUseCase xmi:type="uml:UseCase" xmi:id="_y62G8GSlEeqldqZ7K2B8Ig" name="Fill the optional fields">
-                <ownedComment xmi:type="uml:Comment" xmi:id="_knfEIGSnEeqldqZ7K2B8Ig" annotatedElement="_y62G8GSlEeqldqZ7K2B8Ig">
-                  <body>Elements such as the number of bedrooms</body>
-                </ownedComment>
-                <extend xmi:type="uml:Extend" xmi:id="_pxb18GSmEeqldqZ7K2B8Ig" extendedCase="_ttc1AGSlEeqldqZ7K2B8Ig"/>
-              </ownedUseCase>
-            </ownedUseCase>
-            <nestedClassifier xmi:type="uml:Actor" xmi:id="_BB9LkGSmEeqldqZ7K2B8Ig" name="Manager"/>
-          </packagedElement>
-          <packagedElement xmi:type="uml:Association" xmi:id="_botnwGSmEeqldqZ7K2B8Ig" name="Apartment's owner triggers to create an apartment" memberEnd="_boygQGSmEeqldqZ7K2B8Ig _bozHUGSmEeqldqZ7K2B8Ig">
-            <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_boxSIGSmEeqldqZ7K2B8Ig" source="org.eclipse.papyrus">
-              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_box5MGSmEeqldqZ7K2B8Ig" key="nature" value="UML_Nature"/>
-            </eAnnotations>
-            <ownedEnd xmi:type="uml:Property" xmi:id="_boygQGSmEeqldqZ7K2B8Ig" name="createapartment" type="_ttc1AGSlEeqldqZ7K2B8Ig" association="_botnwGSmEeqldqZ7K2B8Ig"/>
-            <ownedEnd xmi:type="uml:Property" xmi:id="_bozHUGSmEeqldqZ7K2B8Ig" name="apartment's owner" type="_BB9LkGSmEeqldqZ7K2B8Ig" association="_botnwGSmEeqldqZ7K2B8Ig"/>
-          </packagedElement>
-          <packagedElement xmi:type="uml:Usage" xmi:id="_v448YGSmEeqldqZ7K2B8Ig" client="_wQhOsGSlEeqldqZ7K2B8Ig" supplier="_ttc1AGSlEeqldqZ7K2B8Ig"/>
-          <packagedElement xmi:type="uml:Usage" xmi:id="_2T87UGSmEeqldqZ7K2B8Ig" client="_2CmiEGSlEeqldqZ7K2B8Ig" supplier="_wQhOsGSlEeqldqZ7K2B8Ig"/>
-          <packagedElement xmi:type="uml:Usage" xmi:id="_6vst4GSmEeqldqZ7K2B8Ig" client="_5Cv5UGSlEeqldqZ7K2B8Ig" supplier="_wQhOsGSlEeqldqZ7K2B8Ig"/>
-          <packagedElement xmi:type="uml:Usage" xmi:id="__Vdw4GrBEeqG6NsufvOKcA" client="_8pc6QGSlEeqldqZ7K2B8Ig" supplier="_wQhOsGSlEeqldqZ7K2B8Ig"/>
-        </packagedElement>
         <packagedElement xmi:type="uml:Package" xmi:id="_FaoYUGrCEeqG6NsufvOKcA" name="UCD_AskOpinionForUtility">
           <packagedElement xmi:type="uml:Interaction" xmi:id="_Pt_w8GSgEeqgR6r_D9TUsQ" name="AskOpinionForUtility">
             <ownedUseCase xmi:type="uml:UseCase" xmi:id="_gesG8GSgEeqgR6r_D9TUsQ" name="Find an apartment">
@@ -102,12 +73,6 @@
               <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_uBdS8GShEeqgR6r_D9TUsQ" name="ExtensionPoint2"/>
               <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_uuafkGShEeqgR6r_D9TUsQ" name="ExtensionPoint3"/>
               <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_zo2ZQGShEeqgR6r_D9TUsQ" name="ExtensionPoint4"/>
-            </ownedUseCase>
-            <ownedUseCase xmi:type="uml:UseCase" xmi:id="_jmovUGSgEeqgR6r_D9TUsQ" name="Fill the number of bedrooms">
-              <extend xmi:type="uml:Extend" xmi:id="_uuZ4gGShEeqgR6r_D9TUsQ" extendedCase="_gesG8GSgEeqgR6r_D9TUsQ" extensionLocation="_uuafkGShEeqgR6r_D9TUsQ"/>
-            </ownedUseCase>
-            <ownedUseCase xmi:type="uml:UseCase" xmi:id="_oXWFQGSgEeqgR6r_D9TUsQ" name="Fill the superficy">
-              <extend xmi:type="uml:Extend" xmi:id="_uBcr4GShEeqgR6r_D9TUsQ" extendedCase="_gesG8GSgEeqgR6r_D9TUsQ" extensionLocation="_uBdS8GShEeqgR6r_D9TUsQ"/>
             </ownedUseCase>
             <ownedUseCase xmi:type="uml:UseCase" xmi:id="_saPS8GSgEeqgR6r_D9TUsQ" name="Check most important criteria">
               <extend xmi:type="uml:Extend" xmi:id="_s0RHEGShEeqgR6r_D9TUsQ" extendedCase="_gesG8GSgEeqgR6r_D9TUsQ" extensionLocation="_s0UKYGShEeqgR6r_D9TUsQ"/>
@@ -121,7 +86,7 @@
             </ownedUseCase>
             <nestedClassifier xmi:type="uml:Actor" xmi:id="_ZaRpAGSgEeqgR6r_D9TUsQ" name="Tenant"/>
           </packagedElement>
-          <packagedElement xmi:type="uml:Association" xmi:id="_QMvF8GShEeqgR6r_D9TUsQ" name="Lacator triggers to find an apartment" memberEnd="_QMvtAmShEeqgR6r_D9TUsQ _QMwUEGShEeqgR6r_D9TUsQ">
+          <packagedElement xmi:type="uml:Association" xmi:id="_QMvF8GShEeqgR6r_D9TUsQ" name="Locator triggers to find an apartment" memberEnd="_QMvtAmShEeqgR6r_D9TUsQ _QMwUEGShEeqgR6r_D9TUsQ">
             <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_QMvtAGShEeqgR6r_D9TUsQ" source="org.eclipse.papyrus">
               <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_QMvtAWShEeqgR6r_D9TUsQ" key="nature" value="UML_Nature"/>
             </eAnnotations>
@@ -131,39 +96,14 @@
         </packagedElement>
         <packagedElement xmi:type="uml:Package" xmi:id="_RYNkoGrCEeqG6NsufvOKcA" name="UCD_UseApartmentRentalPlatform">
           <packagedElement xmi:type="uml:Interaction" xmi:id="_TPRn4GS3EeqTxqp8Bmjtjg" name="GlobalUseCase" useCase="_oWFpkGS3EeqTxqp8Bmjtjg _mgI0kGS3EeqTxqp8Bmjtjg _jJ2OMGS3EeqTxqp8Bmjtjg _gumTwGS3EeqTxqp8Bmjtjg _fIsF4GS3EeqTxqp8Bmjtjg _czcs0GS3EeqTxqp8Bmjtjg">
-            <ownedUseCase xmi:type="uml:UseCase" xmi:id="_czcs0GS3EeqTxqp8Bmjtjg" name="Filter the apartments" subject="_TPRn4GS3EeqTxqp8Bmjtjg">
-              <include xmi:type="uml:Include" xmi:id="_wZGy4GS5EeqTxqp8Bmjtjg" addition="_fIsF4GS3EeqTxqp8Bmjtjg"/>
-            </ownedUseCase>
-            <ownedUseCase xmi:type="uml:UseCase" xmi:id="_fIsF4GS3EeqTxqp8Bmjtjg" name="List the apartments" subject="_TPRn4GS3EeqTxqp8Bmjtjg"/>
+            <ownedUseCase xmi:type="uml:UseCase" xmi:id="_czcs0GS3EeqTxqp8Bmjtjg" name="Set up preferences" subject="_TPRn4GS3EeqTxqp8Bmjtjg"/>
+            <ownedUseCase xmi:type="uml:UseCase" xmi:id="_fIsF4GS3EeqTxqp8Bmjtjg" name="Look at a list of apartments" subject="_TPRn4GS3EeqTxqp8Bmjtjg"/>
             <ownedUseCase xmi:type="uml:UseCase" xmi:id="_gumTwGS3EeqTxqp8Bmjtjg" name="Modify an apartment" subject="_TPRn4GS3EeqTxqp8Bmjtjg"/>
             <ownedUseCase xmi:type="uml:UseCase" xmi:id="_jJ2OMGS3EeqTxqp8Bmjtjg" name="Generate apartments randomly" subject="_TPRn4GS3EeqTxqp8Bmjtjg"/>
             <ownedUseCase xmi:type="uml:UseCase" xmi:id="_mgI0kGS3EeqTxqp8Bmjtjg" name="Create an apartment" subject="_TPRn4GS3EeqTxqp8Bmjtjg">
               <include xmi:type="uml:Include" xmi:id="_9kIpwGS5EeqTxqp8Bmjtjg" addition="_jJ2OMGS3EeqTxqp8Bmjtjg"/>
             </ownedUseCase>
-            <ownedUseCase xmi:type="uml:UseCase" xmi:id="_oWFpkGS3EeqTxqp8Bmjtjg" name="Calculate distance by public transport" subject="_TPRn4GS3EeqTxqp8Bmjtjg"/>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_Mh7UMGS5EeqTxqp8Bmjtjg" name="" type="_fIsF4GS3EeqTxqp8Bmjtjg"/>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_NEaWMGS5EeqTxqp8Bmjtjg" name="" type="_gumTwGS3EeqTxqp8Bmjtjg"/>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_NSCigWS5EeqTxqp8Bmjtjg" name="" type="_jJ2OMGS3EeqTxqp8Bmjtjg"/>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_O7nIYGS5EeqTxqp8Bmjtjg" name="" type="_gumTwGS3EeqTxqp8Bmjtjg"/>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_PJTmIGS5EeqTxqp8Bmjtjg" name="" type="_jJ2OMGS3EeqTxqp8Bmjtjg"/>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_PcUBsGS5EeqTxqp8Bmjtjg" name="" type="_mgI0kGS3EeqTxqp8Bmjtjg"/>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_QdOsIWS5EeqTxqp8Bmjtjg" name="" type="_oWFpkGS3EeqTxqp8Bmjtjg"/>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_RJulwGS5EeqTxqp8Bmjtjg" name="" type="_czcs0GS3EeqTxqp8Bmjtjg"/>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_RJ1TcWS5EeqTxqp8Bmjtjg" name="" type="_fIsF4GS3EeqTxqp8Bmjtjg"/>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_RJ7aEWS5EeqTxqp8Bmjtjg" name="" type="_gumTwGS3EeqTxqp8Bmjtjg"/>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_RKCHwWS5EeqTxqp8Bmjtjg" name="" type="_jJ2OMGS3EeqTxqp8Bmjtjg"/>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_RKIOYWS5EeqTxqp8Bmjtjg" name="" type="_mgI0kGS3EeqTxqp8Bmjtjg"/>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_RKOVAWS5EeqTxqp8Bmjtjg" name="" type="_oWFpkGS3EeqTxqp8Bmjtjg"/>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_STfqMWS5EeqTxqp8Bmjtjg" name="" type="_czcs0GS3EeqTxqp8Bmjtjg"/>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_STqCQWS5EeqTxqp8Bmjtjg" name="" type="_fIsF4GS3EeqTxqp8Bmjtjg"/>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_STx-EWS5EeqTxqp8Bmjtjg" name="" type="_gumTwGS3EeqTxqp8Bmjtjg"/>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_ST4EsWS5EeqTxqp8Bmjtjg" name="" type="_jJ2OMGS3EeqTxqp8Bmjtjg"/>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_ST-LUWS5EeqTxqp8Bmjtjg" name="" type="_mgI0kGS3EeqTxqp8Bmjtjg"/>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_SUDq4WS5EeqTxqp8Bmjtjg" name="" type="_oWFpkGS3EeqTxqp8Bmjtjg"/>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_SeickWS5EeqTxqp8Bmjtjg" name="" type="_oWFpkGS3EeqTxqp8Bmjtjg"/>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_SojUMGS5EeqTxqp8Bmjtjg" name="" type="_oWFpkGS3EeqTxqp8Bmjtjg"/>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_S2qBoGS5EeqTxqp8Bmjtjg" name="" type="_jJ2OMGS3EeqTxqp8Bmjtjg"/>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_S_NgsGS5EeqTxqp8Bmjtjg" name="" type="_jJ2OMGS3EeqTxqp8Bmjtjg"/>
+            <ownedUseCase xmi:type="uml:UseCase" xmi:id="_oWFpkGS3EeqTxqp8Bmjtjg" name="Compute distance by public transport" subject="_TPRn4GS3EeqTxqp8Bmjtjg"/>
             <nestedClassifier xmi:type="uml:Actor" xmi:id="_IYcy0GS4EeqTxqp8Bmjtjg" name="Tenant"/>
             <nestedClassifier xmi:type="uml:Actor" xmi:id="_KA8aoGS4EeqTxqp8Bmjtjg" name="Manager"/>
           </packagedElement>
@@ -195,6 +135,7 @@
             <ownedEnd xmi:type="uml:Property" xmi:id="_8nxvMmS5EeqTxqp8Bmjtjg" name="create an apartment" type="_mgI0kGS3EeqTxqp8Bmjtjg" association="_8nxIIGS5EeqTxqp8Bmjtjg"/>
             <ownedEnd xmi:type="uml:Property" xmi:id="_8nxvM2S5EeqTxqp8Bmjtjg" name="owner" type="_KA8aoGS4EeqTxqp8Bmjtjg" association="_8nxIIGS5EeqTxqp8Bmjtjg"/>
           </packagedElement>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_gD5-AK8TEeqJYL1h9ZBcaQ" client="_fIsF4GS3EeqTxqp8Bmjtjg" supplier="_czcs0GS3EeqTxqp8Bmjtjg"/>
         </packagedElement>
       </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_p_uX0GrAEeqG6NsufvOKcA" name="JavaIteration">
