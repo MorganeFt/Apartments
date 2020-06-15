@@ -1562,6 +1562,49 @@
           </packagedElement>
           <packagedElement xmi:type="uml:Dependency" xmi:id="_ZVIt0Jj3EeqYP-aD6j0wRg" client="_OIB8MJj3EeqYP-aD6j0wRg" supplier="_1N7WIF--EeqAAb4u4HLI7w"/>
         </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_A3YaoF_BEeqAAb4u4HLI7w" name="toxmlproperties">
+          <packagedElement xmi:type="uml:Class" xmi:id="_G6iP4F_BEeqAAb4u4HLI7w" name="XMLProperties" visibility="public">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_G6i28F_BEeqAAb4u4HLI7w" name="properties" visibility="private" isUnique="false"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_G6jeAF_BEeqAAb4u4HLI7w" name="LOGGER" visibility="private" isLeaf="true" isStatic="true" type="_ZCxH8F--EeqAAb4u4HLI7w" isUnique="false">
+              <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_G6jeAV_BEeqAAb4u4HLI7w" name="defaultValue">
+                <language>JAVA</language>
+                <body>LoggerFactory.getLogger(XMLProperties.class)</body>
+              </defaultValue>
+            </ownedAttribute>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_G6mhUF_BEeqAAb4u4HLI7w" name="XMLProperties" specification="_G6jeAl_BEeqAAb4u4HLI7w">
+              <language>JAVA</language>
+              <body>&#xD;
+    this.properties = new Properties();&#xD;
+</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_G6pkoF_BEeqAAb4u4HLI7w" name="toXML" specification="_G6oWgF_BEeqAAb4u4HLI7w">
+              <language>JAVA</language>
+              <body>&#xD;
+    properties.setProperty(&quot;nbSleeping&quot;, String.valueOf(a.getNbSleeping()));&#xD;
+    properties.setProperty(&quot;nbMinNight&quot;, String.valueOf(a.getNbMinNight()));&#xD;
+    properties.setProperty(&quot;terrace&quot;, String.valueOf(a.getTerrace()));&#xD;
+    properties.setProperty(&quot;nbBedrooms&quot;, String.valueOf(a.getNbBedrooms()));&#xD;
+    properties.setProperty(&quot;floorArea&quot;, String.valueOf(a.getFloorArea()));&#xD;
+    properties.setProperty(&quot;pricePerNight&quot;, String.valueOf(a.getPricePerNight()));&#xD;
+    properties.setProperty(&quot;tele&quot;, String.valueOf(a.getTele()));&#xD;
+    properties.setProperty(&quot;wifi&quot;, String.valueOf(a.getWifi()));&#xD;
+    properties.setProperty(&quot;title&quot;, a.getTitle());&#xD;
+    properties.setProperty(&quot;nbBathrooms&quot;, String.valueOf(a.getNbBathrooms()));&#xD;
+    properties.setProperty(&quot;address&quot;, a.getAddress());&#xD;
+    properties.setProperty(&quot;floorAreaTerrace&quot;, String.valueOf(a.getFloorAreaTerrace()));&#xD;
+    properties.setProperty(&quot;description&quot;, a.getDescription());&#xD;
+    properties.storeToXML(xmlFile, &quot;Generated file for the apartment &quot; + a.getTitle());&#xD;
+    LOGGER.info(&quot;Stream has been closed&quot;);&#xD;
+</body>
+            </ownedBehavior>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_G6jeAl_BEeqAAb4u4HLI7w" name="XMLProperties" visibility="public" method="_G6mhUF_BEeqAAb4u4HLI7w"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_G6oWgF_BEeqAAb4u4HLI7w" name="toXML" visibility="public" method="_G6pkoF_BEeqAAb4u4HLI7w">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_G6oWgV_BEeqAAb4u4HLI7w" name="a"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_G6oWgl_BEeqAAb4u4HLI7w" name="xmlFile"/>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Dependency" xmi:id="_QDfPMJjqEeqYCK4Btw7kWQ" client="_A3YaoF_BEeqAAb4u4HLI7w" supplier="_1QqroF-_EeqAAb4u4HLI7w"/>
+        </packagedElement>
       </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_JAqEUF_AEeqAAb4u4HLI7w" name="distance">
         <packagedElement xmi:type="uml:Class" xmi:id="_ESBK8F_AEeqAAb4u4HLI7w" name="DistanceSubway" visibility="public">
@@ -2756,49 +2799,6 @@
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_4qfRsF_AEeqAAb4u4HLI7w" name="NumberFormatException"/>
         <packagedElement xmi:type="uml:Dependency" xmi:id="_VtMpsJjqEeqYCK4Btw7kWQ" client="_1bkeoF_AEeqAAb4u4HLI7w" supplier="_-FOsoJU1Eeqfq4Pvb_wd9Q"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Package" xmi:id="_A3YaoF_BEeqAAb4u4HLI7w" name="toxmlproperties">
-        <packagedElement xmi:type="uml:Class" xmi:id="_G6iP4F_BEeqAAb4u4HLI7w" name="XMLProperties" visibility="public">
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_G6i28F_BEeqAAb4u4HLI7w" name="properties" visibility="private" isUnique="false"/>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_G6jeAF_BEeqAAb4u4HLI7w" name="LOGGER" visibility="private" isLeaf="true" isStatic="true" type="_ZCxH8F--EeqAAb4u4HLI7w" isUnique="false">
-            <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_G6jeAV_BEeqAAb4u4HLI7w" name="defaultValue">
-              <language>JAVA</language>
-              <body>LoggerFactory.getLogger(XMLProperties.class)</body>
-            </defaultValue>
-          </ownedAttribute>
-          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_G6mhUF_BEeqAAb4u4HLI7w" name="XMLProperties" specification="_G6jeAl_BEeqAAb4u4HLI7w">
-            <language>JAVA</language>
-            <body>&#xD;
-    this.properties = new Properties();&#xD;
-</body>
-          </ownedBehavior>
-          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_G6pkoF_BEeqAAb4u4HLI7w" name="toXML" specification="_G6oWgF_BEeqAAb4u4HLI7w">
-            <language>JAVA</language>
-            <body>&#xD;
-    properties.setProperty(&quot;nbSleeping&quot;, String.valueOf(a.getNbSleeping()));&#xD;
-    properties.setProperty(&quot;nbMinNight&quot;, String.valueOf(a.getNbMinNight()));&#xD;
-    properties.setProperty(&quot;terrace&quot;, String.valueOf(a.getTerrace()));&#xD;
-    properties.setProperty(&quot;nbBedrooms&quot;, String.valueOf(a.getNbBedrooms()));&#xD;
-    properties.setProperty(&quot;floorArea&quot;, String.valueOf(a.getFloorArea()));&#xD;
-    properties.setProperty(&quot;pricePerNight&quot;, String.valueOf(a.getPricePerNight()));&#xD;
-    properties.setProperty(&quot;tele&quot;, String.valueOf(a.getTele()));&#xD;
-    properties.setProperty(&quot;wifi&quot;, String.valueOf(a.getWifi()));&#xD;
-    properties.setProperty(&quot;title&quot;, a.getTitle());&#xD;
-    properties.setProperty(&quot;nbBathrooms&quot;, String.valueOf(a.getNbBathrooms()));&#xD;
-    properties.setProperty(&quot;address&quot;, a.getAddress());&#xD;
-    properties.setProperty(&quot;floorAreaTerrace&quot;, String.valueOf(a.getFloorAreaTerrace()));&#xD;
-    properties.setProperty(&quot;description&quot;, a.getDescription());&#xD;
-    properties.storeToXML(xmlFile, &quot;Generated file for the apartment &quot; + a.getTitle());&#xD;
-    LOGGER.info(&quot;Stream has been closed&quot;);&#xD;
-</body>
-          </ownedBehavior>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_G6jeAl_BEeqAAb4u4HLI7w" name="XMLProperties" visibility="public" method="_G6mhUF_BEeqAAb4u4HLI7w"/>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_G6oWgF_BEeqAAb4u4HLI7w" name="toXML" visibility="public" method="_G6pkoF_BEeqAAb4u4HLI7w">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_G6oWgV_BEeqAAb4u4HLI7w" name="a"/>
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_G6oWgl_BEeqAAb4u4HLI7w" name="xmlFile"/>
-          </ownedOperation>
-        </packagedElement>
-        <packagedElement xmi:type="uml:Dependency" xmi:id="_QDfPMJjqEeqYCK4Btw7kWQ" client="_A3YaoF_BEeqAAb4u4HLI7w" supplier="_1QqroF-_EeqAAb4u4HLI7w"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_QgD_sF_BEeqAAb4u4HLI7w" name="utils">
         <packagedElement xmi:type="uml:Class" xmi:id="_WcYNIF_BEeqAAb4u4HLI7w" name="KeyManager" visibility="public">
