@@ -5300,12 +5300,18 @@
             </ownedOperation>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_XHabMJ2bEeq5UMfZ1C8e7g" name="QuestionPriceArea">
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_XHabMZ2bEeq5UMfZ1C8e7g" name="pairParam1" visibility="public"/>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_XHabMp2bEeq5UMfZ1C8e7g" name="pairParam2" visibility="public"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_XHabMZ2bEeq5UMfZ1C8e7g" name="price" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_ILxaUPaLEeW5KOK8aDMdgA"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_XHabMp2bEeq5UMfZ1C8e7g" name="surface" visibility="public">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_QbWdUK8qEeqTKYBcNew1MA" name="question" visibility="private" type="__EuesHEuEeq9ooUMj2JdaQ"/>
             <ownedOperation xmi:type="uml:Operation" xmi:id="_XHabM52bEeq5UMfZ1C8e7g" name="resolve" isStatic="true" isAbstract="true">
-              <ownedParameter xmi:type="uml:Parameter" xmi:id="_XHabNJ2bEeq5UMfZ1C8e7g" name="avf" visibility="public" type="_72rEYF_BEeqAAb4u4HLI7w" effect="update"/>
-              <ownedParameter xmi:type="uml:Parameter" xmi:id="_XHabNZ2bEeq5UMfZ1C8e7g" name="answerPair" visibility="public" effect="read"/>
-              <ownedParameter xmi:type="uml:Parameter" xmi:id="_XHabNp2bEeq5UMfZ1C8e7g" name="updatedAVF" visibility="public" type="_72rEYF_BEeqAAb4u4HLI7w" direction="return" effect="create"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_DidC0K8rEeqTKYBcNew1MA" name="p" type="_sCMNUJwtEeqGkeU796yVmw"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_M5tGEK8rEeqTKYBcNew1MA" name="response">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+              </ownedParameter>
             </ownedOperation>
           </packagedElement>
         </packagedElement>
