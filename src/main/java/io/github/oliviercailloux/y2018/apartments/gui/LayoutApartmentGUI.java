@@ -1,10 +1,12 @@
 package io.github.oliviercailloux.y2018.apartments.gui;
 
 import io.github.oliviercailloux.y2018.apartments.apartment.Apartment;
-import io.github.oliviercailloux.y2018.apartments.apartment.ApartmentFactory;
+import io.github.oliviercailloux.y2018.apartments.apartment.json.JsonConvert;
 import io.github.oliviercailloux.y2018.apartments.valuefunction.ApartmentValueFunction;
 import io.github.oliviercailloux.y2018.apartments.valuefunction.LinearValueFunction;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Random;
 import org.eclipse.swt.*;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -128,12 +130,21 @@ public class LayoutApartmentGUI {
    * user
    *
    * @param avf a way to rate the apartments
-   * @throws IllegalAccessException
-   * @throws IOException
    */
   private static java.util.List<Apartment> getListSorted(ApartmentValueFunction avf) {
+    java.util.List<Apartment> listApartment = JsonConvert.getDefaultApartments();
+    java.util.List<Apartment> appart = new ArrayList<>();
+    java.util.List<Integer> randomList = new ArrayList<>();
+    Random ran = new Random();
+    int newRandom = ran.nextInt(499);
 
-    java.util.List<Apartment> appart = ApartmentFactory.generateRandomApartments(50);
+    for (int i = 0; i < 49; i++) {
+      while (randomList.indexOf(newRandom) != -1) {
+        newRandom = ran.nextInt(499);
+      }
+      randomList.add(newRandom);
+      appart.add(listApartment.get(randomList.get(i)));
+    }
 
     appart.sort(
         (Apartment c, Apartment d) -> {
@@ -194,5 +205,6 @@ public class LayoutApartmentGUI {
 
     LayoutApartmentGUI layout = new LayoutApartmentGUI(avf);
     layout.displayAppart();
+
   }
 }
