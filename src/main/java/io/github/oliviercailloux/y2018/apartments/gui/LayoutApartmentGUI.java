@@ -18,7 +18,7 @@ import org.w3c.dom.DOMException;
 /** this class displays a list of apartments sorted according to the user's utilities */
 public class LayoutApartmentGUI {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(CreateApartmentGUI.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(LayoutApartmentGUI.class);
 
   java.util.List<Apartment> listApp;
 
@@ -63,10 +63,8 @@ public class LayoutApartmentGUI {
     Label label = new Label(shell, SWT.NULL);
     label.setText("Liste des appartements disponibles :");
     label.setLayoutData(new GridData(GridData.HORIZONTAL_ALIGN_CENTER));
-    new Label(shell, SWT.NULL);
 
     // define griddata with a verticalspan : 3 rows
-    new Label(shell, SWT.NULL);
     gridData = new GridData(GridData.FILL_BOTH);
     gridData.verticalSpan = 3;
 
@@ -188,11 +186,9 @@ public class LayoutApartmentGUI {
    * This is the main function
    *
    * @param args
-   * @throws IllegalAccessException
    * @throws DOMException
-   * @throws IOException
    */
-  public static void main(String[] args) throws IllegalAccessException, IOException {
+  public static void main(String[] args) {
     ApartmentValueFunction avf = new ApartmentValueFunction();
     avf.setFloorAreaValueFunction(new LinearValueFunction(0, 300));
 
