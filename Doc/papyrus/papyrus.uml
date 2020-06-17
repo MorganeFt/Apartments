@@ -66,8 +66,8 @@
           <body>ApartmentValueFunction uses all PartialValueFunction implementations and all enumerations&#xD;
 </body>
         </ownedComment>
-        <packagedElement xmi:type="uml:Package" xmi:id="_FaoYUGrCEeqG6NsufvOKcA" name="UCD_AskOpinionForUtility">
-          <packagedElement xmi:type="uml:Interaction" xmi:id="_Pt_w8GSgEeqgR6r_D9TUsQ" name="AskOpinionForUtility">
+        <packagedElement xmi:type="uml:Package" xmi:id="_FaoYUGrCEeqG6NsufvOKcA" name="UCD_setPreferences">
+          <packagedElement xmi:type="uml:Interaction" xmi:id="_Pt_w8GSgEeqgR6r_D9TUsQ" name="setPreferences">
             <ownedUseCase xmi:type="uml:UseCase" xmi:id="_gesG8GSgEeqgR6r_D9TUsQ" name="Find an apartment">
               <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_s0UKYGShEeqgR6r_D9TUsQ" name="ExtensionPoint1"/>
               <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_uBdS8GShEeqgR6r_D9TUsQ" name="ExtensionPoint2"/>
@@ -79,42 +79,11 @@
             </ownedUseCase>
             <ownedUseCase xmi:type="uml:UseCase" xmi:id="_vfArgGSgEeqgR6r_D9TUsQ" name="Display results">
               <extend xmi:type="uml:Extend" xmi:id="_zo1LIGShEeqgR6r_D9TUsQ" extendedCase="_gesG8GSgEeqgR6r_D9TUsQ" extensionLocation="_zo2ZQGShEeqgR6r_D9TUsQ"/>
-              <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_1_2F0GShEeqgR6r_D9TUsQ" name="ExtensionPoint2"/>
             </ownedUseCase>
             <ownedUseCase xmi:type="uml:UseCase" xmi:id="_yGayoGSgEeqgR6r_D9TUsQ" name="Select an apartment">
-              <extend xmi:type="uml:Extend" xmi:id="_1_03sGShEeqgR6r_D9TUsQ" extendedCase="_vfArgGSgEeqgR6r_D9TUsQ" extensionLocation="_1_2F0GShEeqgR6r_D9TUsQ"/>
+              <extend xmi:type="uml:Extend" xmi:id="_1_03sGShEeqgR6r_D9TUsQ" extendedCase="_vfArgGSgEeqgR6r_D9TUsQ"/>
             </ownedUseCase>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_JXDdYLCZEeqa3ucupDYnjQ" name="" type="_gesG8GSgEeqgR6r_D9TUsQ"/>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_K6QVgbCZEeqa3ucupDYnjQ" name="" type="_vfArgGSgEeqgR6r_D9TUsQ"/>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_Lr6b8LCZEeqa3ucupDYnjQ" name="" type="_yGayoGSgEeqgR6r_D9TUsQ"/>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_M7AsULCZEeqa3ucupDYnjQ" name="" type="_yGayoGSgEeqgR6r_D9TUsQ"/>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_N5QdQbCZEeqa3ucupDYnjQ" name="" type="_saPS8GSgEeqgR6r_D9TUsQ"/>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_PrR0gLCZEeqa3ucupDYnjQ" name="" type="_gesG8GSgEeqgR6r_D9TUsQ"/>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_PreBwbCZEeqa3ucupDYnjQ" name="" type="_saPS8GSgEeqgR6r_D9TUsQ"/>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_PrnywLCZEeqa3ucupDYnjQ" name="" type="_vfArgGSgEeqgR6r_D9TUsQ"/>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_PrxjwbCZEeqa3ucupDYnjQ" name="" type="_yGayoGSgEeqgR6r_D9TUsQ"/>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_QXtcsLCZEeqa3ucupDYnjQ" name="" type="_gesG8GSgEeqgR6r_D9TUsQ"/>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_QqfOwbCZEeqa3ucupDYnjQ" name="" type="_gesG8GSgEeqgR6r_D9TUsQ"/>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_RU-9QbCZEeqa3ucupDYnjQ" name="" type="_gesG8GSgEeqgR6r_D9TUsQ"/>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_RgCWsLCZEeqa3ucupDYnjQ" name="" type="_gesG8GSgEeqgR6r_D9TUsQ"/>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_S0GmoLCZEeqa3ucupDYnjQ" name="" type="_yGayoGSgEeqgR6r_D9TUsQ"/>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_Tin5gLCZEeqa3ucupDYnjQ" name="" type="_yGayoGSgEeqgR6r_D9TUsQ"/>
             <nestedClassifier xmi:type="uml:Actor" xmi:id="_ZaRpAGSgEeqgR6r_D9TUsQ" name="Tenant"/>
-            <lifeline xmi:type="uml:Lifeline" xmi:id="_JXBBILCZEeqa3ucupDYnjQ" name="" represents="_JXDdYLCZEeqa3ucupDYnjQ"/>
-            <lifeline xmi:type="uml:Lifeline" xmi:id="_K6QVgLCZEeqa3ucupDYnjQ" name="" represents="_K6QVgbCZEeqa3ucupDYnjQ"/>
-            <lifeline xmi:type="uml:Lifeline" xmi:id="_Lr504LCZEeqa3ucupDYnjQ" name="" represents="_Lr6b8LCZEeqa3ucupDYnjQ"/>
-            <lifeline xmi:type="uml:Lifeline" xmi:id="_M7AFQLCZEeqa3ucupDYnjQ" name="" represents="_M7AsULCZEeqa3ucupDYnjQ"/>
-            <lifeline xmi:type="uml:Lifeline" xmi:id="_N5QdQLCZEeqa3ucupDYnjQ" name="" represents="_N5QdQbCZEeqa3ucupDYnjQ"/>
-            <lifeline xmi:type="uml:Lifeline" xmi:id="_PrRNcLCZEeqa3ucupDYnjQ" name="" represents="_PrR0gLCZEeqa3ucupDYnjQ"/>
-            <lifeline xmi:type="uml:Lifeline" xmi:id="_PreBwLCZEeqa3ucupDYnjQ" name="" represents="_PreBwbCZEeqa3ucupDYnjQ"/>
-            <lifeline xmi:type="uml:Lifeline" xmi:id="_PrnLsLCZEeqa3ucupDYnjQ" name="" represents="_PrnywLCZEeqa3ucupDYnjQ"/>
-            <lifeline xmi:type="uml:Lifeline" xmi:id="_PrxjwLCZEeqa3ucupDYnjQ" name="" represents="_PrxjwbCZEeqa3ucupDYnjQ"/>
-            <lifeline xmi:type="uml:Lifeline" xmi:id="_QXs1oLCZEeqa3ucupDYnjQ" name="" represents="_QXtcsLCZEeqa3ucupDYnjQ"/>
-            <lifeline xmi:type="uml:Lifeline" xmi:id="_QqfOwLCZEeqa3ucupDYnjQ" name="" represents="_QqfOwbCZEeqa3ucupDYnjQ"/>
-            <lifeline xmi:type="uml:Lifeline" xmi:id="_RU-9QLCZEeqa3ucupDYnjQ" name="" represents="_RU-9QbCZEeqa3ucupDYnjQ"/>
-            <lifeline xmi:type="uml:Lifeline" xmi:id="_RgBvoLCZEeqa3ucupDYnjQ" name="" represents="_RgCWsLCZEeqa3ucupDYnjQ"/>
-            <lifeline xmi:type="uml:Lifeline" xmi:id="_S0F_kLCZEeqa3ucupDYnjQ" name="" represents="_S0GmoLCZEeqa3ucupDYnjQ"/>
-            <lifeline xmi:type="uml:Lifeline" xmi:id="_TinScLCZEeqa3ucupDYnjQ" name="" represents="_Tin5gLCZEeqa3ucupDYnjQ"/>
           </packagedElement>
           <packagedElement xmi:type="uml:Association" xmi:id="_QMvF8GShEeqgR6r_D9TUsQ" name="Locator triggers to find an apartment" memberEnd="_QMvtAmShEeqgR6r_D9TUsQ _QMwUEGShEeqgR6r_D9TUsQ">
             <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_QMvtAGShEeqgR6r_D9TUsQ" source="org.eclipse.papyrus">
@@ -134,12 +103,8 @@
               <include xmi:type="uml:Include" xmi:id="_9kIpwGS5EeqTxqp8Bmjtjg" addition="_jJ2OMGS3EeqTxqp8Bmjtjg"/>
             </ownedUseCase>
             <ownedUseCase xmi:type="uml:UseCase" xmi:id="_oWFpkGS3EeqTxqp8Bmjtjg" name="Compute distance by public transport" subject="_TPRn4GS3EeqTxqp8Bmjtjg"/>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_cQ3cALCZEeqa3ucupDYnjQ" name="" type="_fIsF4GS3EeqTxqp8Bmjtjg"/>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_ciHkELCZEeqa3ucupDYnjQ" name="" type="_fIsF4GS3EeqTxqp8Bmjtjg"/>
             <nestedClassifier xmi:type="uml:Actor" xmi:id="_IYcy0GS4EeqTxqp8Bmjtjg" name="Tenant"/>
             <nestedClassifier xmi:type="uml:Actor" xmi:id="_KA8aoGS4EeqTxqp8Bmjtjg" name="Manager"/>
-            <lifeline xmi:type="uml:Lifeline" xmi:id="_cQ208LCZEeqa3ucupDYnjQ" name="" represents="_cQ3cALCZEeqa3ucupDYnjQ"/>
-            <lifeline xmi:type="uml:Lifeline" xmi:id="_ciG9ALCZEeqa3ucupDYnjQ" name="" represents="_ciHkELCZEeqa3ucupDYnjQ"/>
           </packagedElement>
           <packagedElement xmi:type="uml:Association" xmi:id="_btb1EGS5EeqTxqp8Bmjtjg" name="Locators filters apartments" memberEnd="_bte4YGS5EeqTxqp8Bmjtjg _bte4YWS5EeqTxqp8Bmjtjg">
             <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_btdqQGS5EeqTxqp8Bmjtjg" source="org.eclipse.papyrus">
@@ -264,12 +229,7 @@
             <lifeline xmi:type="uml:Lifeline" xmi:id="_tLabMJxZEeqGkeU796yVmw" name="LT Tenant" represents="_tLbCQJxZEeqGkeU796yVmw" coveredBy="_67r3sZxaEeqGkeU796yVmw _Ok56AJxbEeqGkeU796yVmw"/>
             <lifeline xmi:type="uml:Lifeline" xmi:id="_wZybsJxZEeqGkeU796yVmw" name="LT AskOpinionForUtility" represents="_wZzCwJxZEeqGkeU796yVmw" coveredBy="_cOE64JxaEeqGkeU796yVmw _e6VFwJxaEeqGkeU796yVmw _67r3sJxaEeqGkeU796yVmw _MdXT0JxdEeqGkeU796yVmw _X7QhMJxiEeqmC6F9zzM1kA _WkomIJxaEeqGkeU796yVmw _WknYAJxaEeqGkeU796yVmw _Ok56AZxbEeqGkeU796yVmw _o0wAIJxdEeqGkeU796yVmw"/>
             <lifeline xmi:type="uml:Lifeline" xmi:id="_yfPsUJxZEeqGkeU796yVmw" name="LT Profile Manager" represents="_yfQTYJxZEeqGkeU796yVmw" coveredBy="_cOFh8JxaEeqGkeU796yVmw _e6UesJxaEeqGkeU796yVmw _MdX64JxdEeqGkeU796yVmw _mKjyIJxaEeqGkeU796yVmw _mKjyIZxaEeqGkeU796yVmw _o0vZEJxdEeqGkeU796yVmw _7cmhgJxcEeqGkeU796yVmw _7clTYJxcEeqGkeU796yVmw _adixYJxaEeqGkeU796yVmw"/>
-            <lifeline xmi:type="uml:Lifeline" xmi:id="_UZrGQJxhEeqGkeU796yVmw" name=": ApartmentValueFunction" coveredBy="_X7RIQJxiEeqmC6F9zzM1kA _k-3xwJzAEeqv_texJXdVtQ _nYKu8JzBEeqv_texJXdVtQ _nYKu8ZzBEeqv_texJXdVtQ _pAFvAZzBEeqv_texJXdVtQ _6BCHgZzBEeqv_texJXdVtQ __TanIJzBEeqv_texJXdVtQ __TanIZzBEeqv_texJXdVtQ"/>
-            <lifeline xmi:type="uml:Lifeline" xmi:id="_G59t8JxjEeqmC6F9zzM1kA" name="" represents="_G5-8EJxjEeqmC6F9zzM1kA" coveredBy="_k-3xwZzAEeqv_texJXdVtQ _n67dwJzBEeqv_texJXdVtQ _n696AZzBEeqv_texJXdVtQ _pAFvApzBEeqv_texJXdVtQ _6BCHgJzBEeqv_texJXdVtQ"/>
-            <lifeline xmi:type="uml:Lifeline" xmi:id="_uD0o4JxkEeqN5fyIU2DSYQ" name="" represents="_uD1P8JxkEeqN5fyIU2DSYQ"/>
-            <lifeline xmi:type="uml:Lifeline" xmi:id="_uEFuoJxkEeqN5fyIU2DSYQ" name="" represents="_uEFuoZxkEeqN5fyIU2DSYQ"/>
-            <lifeline xmi:type="uml:Lifeline" xmi:id="_HZtG4JzEEeqv_texJXdVtQ" name="" represents="_HZtt8JzEEeqv_texJXdVtQ"/>
-            <lifeline xmi:type="uml:Lifeline" xmi:id="_HZu8EJzEEeqv_texJXdVtQ" name="" represents="_HZu8EZzEEeqv_texJXdVtQ"/>
+            <lifeline xmi:type="uml:Lifeline" xmi:id="_UZrGQJxhEeqGkeU796yVmw" name=": ApartmentValueFunction" coveredBy="_X7RIQJxiEeqmC6F9zzM1kA _k-3xwJzAEeqv_texJXdVtQ _nYKu8JzBEeqv_texJXdVtQ _nYKu8ZzBEeqv_texJXdVtQ __TanIJzBEeqv_texJXdVtQ __TanIZzBEeqv_texJXdVtQ"/>
             <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_cOE64JxaEeqGkeU796yVmw" name="Message18SendEvent" covered="_wZybsJxZEeqGkeU796yVmw" message="_cODswJxaEeqGkeU796yVmw"/>
             <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_cOFh8JxaEeqGkeU796yVmw" name="Message18ReceiveEvent" covered="_yfPsUJxZEeqGkeU796yVmw" message="_cODswJxaEeqGkeU796yVmw"/>
             <fragment xmi:type="uml:ActionExecutionSpecification" xmi:id="_adixYJxaEeqGkeU796yVmw" name="ActionExecutionSpecification15" covered="_yfPsUJxZEeqGkeU796yVmw" finish="_e6UesJxaEeqGkeU796yVmw" start="_cOFh8JxaEeqGkeU796yVmw"/>
@@ -298,15 +258,8 @@
             <fragment xmi:type="uml:ActionExecutionSpecification" xmi:id="_5ZzqsJxZEeqGkeU796yVmw"/>
             <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_X7RIQJxiEeqmC6F9zzM1kA" name="Message43ReceiveEvent" covered="_UZrGQJxhEeqGkeU796yVmw" message="_X7ET8JxiEeqmC6F9zzM1kA"/>
             <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_k-3xwJzAEeqv_texJXdVtQ" name="Message57SendEvent" covered="_UZrGQJxhEeqGkeU796yVmw"/>
-            <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_k-3xwZzAEeqv_texJXdVtQ" name="Message57ReceiveEvent" covered="_G59t8JxjEeqmC6F9zzM1kA"/>
             <fragment xmi:type="uml:ActionExecutionSpecification" xmi:id="_nYKu8JzBEeqv_texJXdVtQ" name="ActionExecutionSpecification53" covered="_UZrGQJxhEeqGkeU796yVmw" finish="__TanIZzBEeqv_texJXdVtQ" start="_nYKu8ZzBEeqv_texJXdVtQ"/>
             <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_nYKu8ZzBEeqv_texJXdVtQ" name="ActionExecutionSpecification53Start" covered="_UZrGQJxhEeqGkeU796yVmw" execution="_nYKu8JzBEeqv_texJXdVtQ"/>
-            <fragment xmi:type="uml:ActionExecutionSpecification" xmi:id="_n67dwJzBEeqv_texJXdVtQ" name="ActionExecutionSpecification56" covered="_G59t8JxjEeqmC6F9zzM1kA" finish="_n696AZzBEeqv_texJXdVtQ" start="_pAFvAZzBEeqv_texJXdVtQ"/>
-            <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_n696AZzBEeqv_texJXdVtQ" name="ActionExecutionSpecification56Finish" covered="_G59t8JxjEeqmC6F9zzM1kA" execution="_n67dwJzBEeqv_texJXdVtQ"/>
-            <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_pAFvAZzBEeqv_texJXdVtQ" name="Message59SendEvent" covered="_UZrGQJxhEeqGkeU796yVmw" message="_pAFvAJzBEeqv_texJXdVtQ"/>
-            <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_pAFvApzBEeqv_texJXdVtQ" name="Message59ReceiveEvent" covered="_G59t8JxjEeqmC6F9zzM1kA" message="_pAFvAJzBEeqv_texJXdVtQ"/>
-            <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_6BCHgJzBEeqv_texJXdVtQ" name="Message61SendEvent" covered="_G59t8JxjEeqmC6F9zzM1kA" message="_x4QpkJzBEeqv_texJXdVtQ"/>
-            <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_6BCHgZzBEeqv_texJXdVtQ" name="Message61ReceiveEvent" covered="_UZrGQJxhEeqGkeU796yVmw" message="_x4QpkJzBEeqv_texJXdVtQ"/>
             <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="__TanIJzBEeqv_texJXdVtQ" name="Message64SendEvent" covered="_UZrGQJxhEeqGkeU796yVmw" message="__TYK4JzBEeqv_texJXdVtQ"/>
             <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="__TanIZzBEeqv_texJXdVtQ" name="Message64ReceiveEvent" covered="_UZrGQJxhEeqGkeU796yVmw" message="__TYK4JzBEeqv_texJXdVtQ"/>
             <message xmi:type="uml:Message" xmi:id="_XwQEsJxaEeqGkeU796yVmw" name="Launch Program"/>
@@ -318,8 +271,6 @@
             <message xmi:type="uml:Message" xmi:id="_94QroJxcEeqGkeU796yVmw" name="getProfile(ProfileType selectType)" receiveEvent="_MdX64JxdEeqGkeU796yVmw" sendEvent="_MdXT0JxdEeqGkeU796yVmw"/>
             <message xmi:type="uml:Message" xmi:id="_o0uK8JxdEeqGkeU796yVmw" name="return profile instance of selected type" messageSort="reply" receiveEvent="_o0wAIJxdEeqGkeU796yVmw" sendEvent="_o0vZEJxdEeqGkeU796yVmw"/>
             <message xmi:type="uml:Message" xmi:id="_X7ET8JxiEeqmC6F9zzM1kA" name="new ApartmentValueFunction(Profile selected)" messageSort="createMessage" receiveEvent="_X7RIQJxiEeqmC6F9zzM1kA" sendEvent="_X7QhMJxiEeqmC6F9zzM1kA"/>
-            <message xmi:type="uml:Message" xmi:id="_pAFvAJzBEeqv_texJXdVtQ" name="getValues" receiveEvent="_pAFvApzBEeqv_texJXdVtQ" sendEvent="_pAFvAZzBEeqv_texJXdVtQ"/>
-            <message xmi:type="uml:Message" xmi:id="_x4QpkJzBEeqv_texJXdVtQ" name="return values" messageSort="reply" receiveEvent="_6BCHgZzBEeqv_texJXdVtQ" sendEvent="_6BCHgJzBEeqv_texJXdVtQ"/>
             <message xmi:type="uml:Message" xmi:id="__TYK4JzBEeqv_texJXdVtQ" name="generate valueFunctions from values" receiveEvent="__TanIZzBEeqv_texJXdVtQ" sendEvent="__TanIJzBEeqv_texJXdVtQ"/>
           </packagedElement>
           <packagedElement xmi:type="uml:Interaction" xmi:id="_ZN2TYJzDEeqv_texJXdVtQ" name="Adapt AVF using Profile">
