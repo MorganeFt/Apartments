@@ -1835,7 +1835,7 @@
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_GKXFpLCeEeqa3ucupDYnjQ"/>
     </edges>
   </notation:Diagram>
-  <notation:Diagram xmi:id="_Kn_gcGSgEeqgR6r_D9TUsQ" type="UseCase" name="AskOpinionForUtilityUC" measurementUnit="Pixel">
+  <notation:Diagram xmi:id="_Kn_gcGSgEeqgR6r_D9TUsQ" type="UseCase" name="setPreferencesUC" measurementUnit="Pixel">
     <children xmi:type="notation:Shape" xmi:id="_V8hvwGSgEeqgR6r_D9TUsQ" type="Classifier_SubjectShape">
       <children xmi:type="notation:DecorationNode" xmi:id="_V8mBMGSgEeqgR6r_D9TUsQ" type="Classifier_NameLabel"/>
       <children xmi:type="notation:DecorationNode" xmi:id="_V8moQGSgEeqgR6r_D9TUsQ" type="Classifier_FloatingNameLabel">
