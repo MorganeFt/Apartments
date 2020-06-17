@@ -4,7 +4,6 @@ import io.github.oliviercailloux.y2018.apartments.apartment.Apartment;
 import io.github.oliviercailloux.y2018.apartments.apartment.json.JsonConvert;
 import io.github.oliviercailloux.y2018.apartments.valuefunction.ApartmentValueFunction;
 import io.github.oliviercailloux.y2018.apartments.valuefunction.LinearValueFunction;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 import org.eclipse.swt.*;
@@ -14,7 +13,6 @@ import org.eclipse.swt.layout.*;
 import org.eclipse.swt.widgets.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.w3c.dom.DOMException;
 
 /** @author AlWAZZAN & SAKHO */
 /** this class displays a list of apartments sorted according to the user's utilities */
@@ -40,17 +38,12 @@ public class LayoutApartmentGUI {
 
   /**
    * General method which displays all the sorted apartment
-   *
-   * @param listApp the list of apartments to display
-   * @throws DOMException
-   * @throws IllegalAccessException
-   * @throws IOException
    */
   public void displayAppart() {
 
     addAppinListShell();
 
-    shell.setText("Sélection d'un appartement");
+    shell.setText("Filtered results");
 
     // create a gridLayout of 3 columns
     GridLayout gridLayout = new GridLayout();
@@ -63,7 +56,7 @@ public class LayoutApartmentGUI {
 
     // create a list label
     Label label = new Label(shell, SWT.NULL);
-    label.setText("Liste des appartements disponibles :");
+    label.setText("List of availabal apartments :");
     label.setLayoutData(new GridData(GridData.HORIZONTAL_ALIGN_CENTER));
 
     // define griddata with a verticalspan : 3 rows
@@ -76,7 +69,7 @@ public class LayoutApartmentGUI {
     listShell.setLayoutData(gridData);
 
     Group appartInfo = new Group(shell, SWT.NULL);
-    appartInfo.setText("Détail sur l'appartement sélectionné :");
+    appartInfo.setText("Detals on selected apartment :");
 
     gridLayout = new GridLayout();
     gridLayout.numColumns = 2;
@@ -92,7 +85,7 @@ public class LayoutApartmentGUI {
     Label prix;
     Label nbrChambres;
 
-    new Label(appartInfo, SWT.NULL).setText("Adresse :");
+    new Label(appartInfo, SWT.NULL).setText("Address :");
     adresse = new Label(appartInfo, SWT.SINGLE | SWT.BORDER);
     adresse.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 
@@ -100,11 +93,11 @@ public class LayoutApartmentGUI {
     surface = new Label(appartInfo, SWT.SINGLE | SWT.BORDER);
     surface.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 
-    new Label(appartInfo, SWT.NULL).setText("Prix :");
+    new Label(appartInfo, SWT.NULL).setText("Price :");
     prix = new Label(appartInfo, SWT.SINGLE | SWT.BORDER);
     prix.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 
-    new Label(appartInfo, SWT.NULL).setText("Nombre de Chambres :");
+    new Label(appartInfo, SWT.NULL).setText("Number of bedrooms :");
     nbrChambres = new Label(appartInfo, SWT.SINGLE | SWT.BORDER);
     nbrChambres.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 
@@ -156,13 +149,11 @@ public class LayoutApartmentGUI {
 
   /**
    * Method that adds available apartments in the shell list to display
-   *
-   * @param listApp2 the list of apartments to display
    */
   public void addAppinListShell() {
     for (Apartment a : listApp) {
       LOGGER.debug("Appart : " + a);
-      listShell.add("Titre: " + a.getTitle() + "\t" + " Adresse : " + a.getAddress());
+      listShell.add("Title: " + a.getTitle() + "\t" + " Address : " + a.getAddress());
     }
   }
 
@@ -171,7 +162,7 @@ public class LayoutApartmentGUI {
    * elements of the apartment
    *
    * @param listApp3 the list of apartments to display
-   * @param adresse, surface, prix, nbrChambres the parameters of apps to display when clicking on
+   * @param address, surface, price, number of bedrooms the parameters of apps to display when clicking on
    *     an apartment
    */
   private void onClick(Label adresse, Label surface, Label prix, Label nbrChambres) {
@@ -194,10 +185,9 @@ public class LayoutApartmentGUI {
   }
 
   /**
-   * This is the main function
+   * This is the main function. It opens a window which displays the list of apartments.
    *
-   * @param args
-   * @throws DOMException
+   * @param args given arguments
    */
   public static void main(String[] args) {
     ApartmentValueFunction avf = new ApartmentValueFunction();
