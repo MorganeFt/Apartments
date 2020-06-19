@@ -149,11 +149,6 @@ public class Profile {
    */
   public Profile withLinearAVF(LinearAVF newLinearAvf) {
     Profile prof = cloneProfile();
-
-    for (Criterion c : Criterion.values()) {
-      checkWeightInRange(c, newLinearAvf);
-    }
-
     prof.linearAvf = newLinearAvf;
 
     return prof;
@@ -282,7 +277,7 @@ public class Profile {
 
     public Profile build() {
       for (Criterion c : Criterion.values()) {
-        checkNotNull(toBuild.getWeightRange(c), c.name() + " is null");
+        toBuild.checkWeightInRange(c, toBuild.linearAvf);
       }
       return toBuild;
     }
