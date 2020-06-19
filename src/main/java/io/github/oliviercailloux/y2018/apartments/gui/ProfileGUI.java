@@ -11,7 +11,6 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.RGB;
-import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.*;
 import org.eclipse.swt.widgets.Button;
@@ -75,11 +74,11 @@ public class ProfileGUI {
     Map<ProfileType, Button> buttons = new HashMap<>();
     for (int i = 0; i < profileTypesAvailable.size(); i++) {
       final String profileName = profileTypesAvailable.get(i).name().toLowerCase();
-      try (InputStream f =
-          ProfileGUI.class.getResourceAsStream(profileName + ".png")) {
-        Image image = new Image(this.display, new Image(this.display, f).getImageData().scaledTo(sizeImages,sizeImages));
-
-
+      try (InputStream f = ProfileGUI.class.getResourceAsStream(profileName + ".png")) {
+        Image image =
+            new Image(
+                this.display,
+                new Image(this.display, f).getImageData().scaledTo(sizeImages, sizeImages));
 
         Button b = new Button(this.shell, SWT.PUSH);
         int y = marginHorizontal + i * (sizeImages + marginImages);
@@ -91,8 +90,7 @@ public class ProfileGUI {
             event -> {
               shell.close();
 
-              LOGGER.info("Open Question GUI with Profile "+profileName);
-
+              LOGGER.info("Open Question GUI with Profile " + profileName);
             };
         b.addListener(SWT.Selection, selectionlistener);
         buttons.put(profileTypesAvailable.get(i), b);
