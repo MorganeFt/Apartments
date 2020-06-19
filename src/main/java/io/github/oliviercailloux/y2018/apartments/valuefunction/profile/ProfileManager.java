@@ -2,7 +2,10 @@ package io.github.oliviercailloux.y2018.apartments.valuefunction.profile;
 
 import io.github.oliviercailloux.y2018.apartments.valuefunction.Criterion;
 import io.github.oliviercailloux.y2018.apartments.valuefunction.LinearAVF;
+
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class ProfileManager {
 
@@ -149,5 +152,9 @@ public class ProfileManager {
       default:
         throw new IllegalArgumentException();
     }
+  }
+
+  public List<ProfileType> getAvailableProfileTypes(){
+    return new ArrayList<>(mapProfile.keySet());
   }
 }

@@ -4,21 +4,19 @@ import io.github.oliviercailloux.y2018.apartments.iconDisplay.DisplayIcon;
 import io.github.oliviercailloux.y2018.apartments.valuefunction.profile.Profile;
 import io.github.oliviercailloux.y2018.apartments.valuefunction.profile.ProfileManager;
 import io.github.oliviercailloux.y2018.apartments.valuefunction.profile.ProfileType;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.graphics.Color;
-import org.eclipse.swt.graphics.RGB;
-import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.graphics.Image;
-import org.eclipse.swt.widgets.*;
-import org.eclipse.swt.widgets.Button;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
 import java.util.List;
-
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.graphics.RGB;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.*;
+import org.eclipse.swt.widgets.Button;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * This class is a class that will allow us to demonstrate. We ask a few questions to the user at
@@ -33,8 +31,8 @@ public class ProfileGUI {
   private static final int marginImages = 10;
   private static final int sizeImages = 100;
 
-
-  private static final List<ProfileType> profileTypesAvailable = ProfileManager.getInstance().getAvailableTypes();
+  private static final List<ProfileType> profileTypesAvailable =
+      ProfileManager.getInstance().getAvailableProfileTypes();
 
   Display display;
   Shell shell;
@@ -44,12 +42,14 @@ public class ProfileGUI {
     this.shell = new Shell(display);
     shell.setText("Profile selection - Questions");
     shell.setLayout(new GridLayout());
-    shell.setSize(2*marginHorizontal+(profileTypesAvailable.size()-1)*marginImages+profileTypesAvailable.size()*sizeImages,
-            2*marginVertical+sizeImages);
+    shell.setSize(
+        2 * marginHorizontal
+            + (profileTypesAvailable.size() - 1) * marginImages
+            + profileTypesAvailable.size() * sizeImages,
+        2 * marginVertical + sizeImages);
     int x = (display.getClientArea().width - shell.getSize().x) / 2;
     int y = (display.getClientArea().height - shell.getSize().y) / 2;
-    shell.setLocation(x,y);
-
+    shell.setLocation(x, y);
   }
 
   /**
@@ -64,8 +64,8 @@ public class ProfileGUI {
 
     LOGGER.info("Begining the Layout.");
 
-     /*ProfileGUI lay = new ProfileGUI(avf);
-     lay.displayAppart();*/
+    /*ProfileGUI lay = new ProfileGUI(avf);
+    lay.displayAppart();*/
   }
 
   /**
@@ -75,29 +75,29 @@ public class ProfileGUI {
   public void askForProfile() throws IOException {
     Profile selected;
     Map<ProfileType, Image> logos = new HashMap<>();
-    Map<ProfileType,Button> buttons = new HashMap<>();
-    for(int i = 0; i<profileTypesAvailable.size();i++){
-      try (InputStream f = DisplayIcon.class.getResourceAsStream(profileTypesAvailable.get(i)+".png")) {
-        Image image = new Image(display, f);
-        Button b = new Button(shell,SWT.PUSH);
-        int x = marginHorizontal+i*(sizeImages+marginImages);
+    Map<ProfileType, Button> buttons = new HashMap<>();
+    for (int i = 0; i < profileTypesAvailable.size(); i++) {
+      try (InputStream f =
+          DisplayIcon.class.getResourceAsStream(profileTypesAvailable.get(i) + ".png")) {
+        Image image = new Image(this.display, f);
+        Button b = new Button(this.shell, SWT.PUSH);
+        int x = marginHorizontal + i * (sizeImages + marginImages);
         int y = marginVertical;
-        b.setBounds(x,y,sizeImages,sizeImages);
+        b.setBounds(x, y, sizeImages, sizeImages);
         b.setImage(image);
         Listener selectionlistener =
-                event -> {
-                  shell.close();
+            event -> {
+              shell.close();
 
-                  //OUVRIR La NOUVELLE FENETRE
+              // OUVRIR La NOUVELLE FENETRE
 
-                };
-        b.addListener(SWT.Selection,selectionlistener);
-        buttons.put(profileTypesAvailable.get(i),b);
+            };
+        b.addListener(SWT.Selection, selectionlistener);
+        buttons.put(profileTypesAvailable.get(i), b);
         logos.put(profileTypesAvailable.get(i), image);
       }
-
     }
-    shell.setBackground(new Color(display, new RGB(180,180,180),0));
+    shell.setBackground(new Color(display, new RGB(180, 180, 180), 0));
     shell.pack();
     shell.open();
     while (!shell.isDisposed()) {
@@ -109,11 +109,9 @@ public class ProfileGUI {
     LOGGER.info("The screen was closed with success.");
   }
 
-
-
-  private void centerDisplay(Display d, Shell s){
+  private void centerDisplay(Display d, Shell s) {
     int x = (display.getClientArea().width - shell.getSize().x) / 2;
     int y = (display.getClientArea().height - shell.getSize().y) / 2;
-    shell.setLocation(x,y);
+    shell.setLocation(x, y);
   }
 }
