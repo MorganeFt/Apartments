@@ -1,6 +1,5 @@
 package io.github.oliviercailloux.y2018.apartments.gui;
 
-import io.github.oliviercailloux.y2018.apartments.iconDisplay.DisplayIcon;
 import io.github.oliviercailloux.y2018.apartments.valuefunction.profile.Profile;
 import io.github.oliviercailloux.y2018.apartments.valuefunction.profile.ProfileManager;
 import io.github.oliviercailloux.y2018.apartments.valuefunction.profile.ProfileType;
@@ -12,6 +11,7 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.RGB;
+import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.*;
 import org.eclipse.swt.widgets.Button;
@@ -29,7 +29,7 @@ public class ProfileGUI {
   private static final int marginHorizontal = 20;
   private static final int marginVertical = 30;
   private static final int marginImages = 10;
-  private static final int sizeImages = 100;
+  private static final int sizeImages = 200;
 
   private static final List<ProfileType> profileTypesAvailable =
       ProfileManager.getInstance().getAvailableProfileTypes();
@@ -63,9 +63,6 @@ public class ProfileGUI {
     profileSelector.askForProfile();
 
     LOGGER.info("Begining the Layout.");
-
-    /*ProfileGUI lay = new ProfileGUI(avf);
-    lay.displayAppart();*/
   }
 
   /**
@@ -77,19 +74,24 @@ public class ProfileGUI {
     Map<ProfileType, Image> logos = new HashMap<>();
     Map<ProfileType, Button> buttons = new HashMap<>();
     for (int i = 0; i < profileTypesAvailable.size(); i++) {
+      final String profileName = profileTypesAvailable.get(i).name().toLowerCase();
       try (InputStream f =
-          DisplayIcon.class.getResourceAsStream(profileTypesAvailable.get(i) + ".png")) {
-        Image image = new Image(this.display, f);
+          ProfileGUI.class.getResourceAsStream(profileName + ".png")) {
+        Image image = new Image(this.display, new Image(this.display, f).getImageData().scaledTo(sizeImages,sizeImages));
+
+
+
         Button b = new Button(this.shell, SWT.PUSH);
-        int x = marginHorizontal + i * (sizeImages + marginImages);
-        int y = marginVertical;
+        int y = marginHorizontal + i * (sizeImages + marginImages);
+        int x = marginVertical;
         b.setBounds(x, y, sizeImages, sizeImages);
         b.setImage(image);
+
         Listener selectionlistener =
             event -> {
               shell.close();
 
-              // OUVRIR La NOUVELLE FENETRE
+              LOGGER.info("Open Question GUI with Profile "+profileName);
 
             };
         b.addListener(SWT.Selection, selectionlistener);
