@@ -17,6 +17,8 @@ public class Profile {
 
   private LinearAVF linearAvf;
 
+
+
   /**
    * The 10 next arguments gives the Range of apartment characteristic subjective value weight in
    * the calculation of the Apartment total subjective value
