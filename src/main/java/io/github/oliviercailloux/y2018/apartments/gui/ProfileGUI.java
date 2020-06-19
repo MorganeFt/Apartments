@@ -1,75 +1,62 @@
 package io.github.oliviercailloux.y2018.apartments.gui;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
+import com.google.common.base.Preconditions;
+import io.github.oliviercailloux.y2018.apartments.iconDisplay.DisplayIcon;
+import io.github.oliviercailloux.y2018.apartments.valuefunction.ApartmentValueFunction;
+import io.github.oliviercailloux.y2018.apartments.valuefunction.Criterion;
+import io.github.oliviercailloux.y2018.apartments.valuefunction.profile.Profile;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.widgets.*;
 import org.eclipse.swt.widgets.Button;
-import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.Event;
-import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Listener;
-import org.eclipse.swt.widgets.Shell;
-import org.eclipse.swt.widgets.Text;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.google.common.base.Preconditions;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-import io.github.oliviercailloux.y2018.apartments.valuefunction.ApartmentValueFunction;
-import io.github.oliviercailloux.y2018.apartments.valuefunction.Criterion;
-import io.github.oliviercailloux.y2018.apartments.valuefunction.LinearValueFunction;
-
-/** @author SALAME & SAKHO */
 
 /**
  * This class is a class that will allow us to demonstrate. We ask a few questions to the user at
  * the beginning, we adapt his utility then we show him a list of apartments according to his
  * preferences
  */
-public class AskOpinionForUtility {
+public class ProfileGUI {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(AskOpinionForUtility.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(ProfileGUI.class);
+  private static final int marginHorizontal = 20;
+  private static final int marginVertical = 30;
+  private static final int marginImages = 10;
+  private static final int sizeImages = 100;
 
-  /** To move for questions */
-  int pointer = 0;
 
-  /** Keeps the user’s answers (when he presses the button) */
-  List<String> moreImportantAttributes;
-
-  /** Stock the attribute that the user didn't answer (the unpressed button) */
-  List<String> lessImportantAttributes;
-
-  /**
-   * Is composed of the attributes for the first button (buttonchoix1), we can add how much we want
-   */
-  List<Criterion> choix1;
-
-  /** Is composed of the attributes for the second button (buttonchoix2) */
-  List<Criterion> choix2;
-
-  double surfaceMin;
-  double nbBedMin;
+  private static final List<ProfileType> profileTypesAvailable = List.of(ProfileType.getAvailableTypes());
 
   Display display;
   Shell shell;
 
-  public AskOpinionForUtility() {
-    this.moreImportantAttributes = new ArrayList<>();
-    this.lessImportantAttributes = new ArrayList<>();
-    this.choix1 = new ArrayList<>();
-    this.choix2 = new ArrayList<>();
-    this.surfaceMin = 0d;
-    this.nbBedMin = 0d;
-    this.pointer = 0;
+  public ProfileGUI() {
     this.display = new Display();
     this.shell = new Shell(display);
+    shell.setText("Profile selection - Questions");
+    shell.setLayout(new GridLayout());
+    shell.setSize(2*marginHorizontal+(profileTypesAvailable.size()-1)*marginImages+profileTypesAvailable.size()*sizeImages,
+            2*marginVertical+sizeImages);
+    int x = (display.getClientArea().width - shell.getSize().x) / 2;
+    int y = (display.getClientArea().height - shell.getSize().y) / 2;
+    shell.setLocation(x,y);
+
   }
 
   /**
@@ -77,83 +64,68 @@ public class AskOpinionForUtility {
    * Apartments
    *
    * @param args
-   * @throws IllegalAccessException for the DisplayApps function
-   * @throws IOException
    */
-  public static void main(String[] args) {
-
-    AskOpinionForUtility asker = new AskOpinionForUtility();
-    ApartmentValueFunction avf = new ApartmentValueFunction();
-    asker.askQuestions();
-
-    avf.setFloorAreaValueFunction(new LinearValueFunction(0d, 300d));
-    avf.setNbBedroomsValueFunction(new LinearValueFunction(0d, 6d));
-    avf.setNbSleepingValueFunction(new LinearValueFunction(0d, 6d));
-    avf.setNbBathroomsValueFunction(new LinearValueFunction(0d, 6d));
-    avf.setFloorAreaTerraceValueFunction(new LinearValueFunction(0d, 100d));
-    avf.setPricePerNightValueFunction(new LinearValueFunction(0d, 80d));
-    avf.setNbMinNightValueFunction(new LinearValueFunction(0d, 6d));
-
-    avf = asker.adaptAnswers(avf);
-
-    avf = avf.setSubjectiveValueWeight(Criterion.FLOOR_AREA, 0.5);
-    avf = avf.setSubjectiveValueWeight(Criterion.FLOOR_AREA_TERRACE, 0);
-    avf = avf.setSubjectiveValueWeight(Criterion.NB_BATHROOMS, 0);
-    avf = avf.setSubjectiveValueWeight(Criterion.NB_BEDROOMS, 0.5);
-    avf = avf.setSubjectiveValueWeight(Criterion.NB_MIN_NIGHT, 0);
-    avf = avf.setSubjectiveValueWeight(Criterion.NB_SLEEPING, 0);
-    avf = avf.setSubjectiveValueWeight(Criterion.PRICE_PER_NIGHT, 0);
-    avf = avf.setSubjectiveValueWeight(Criterion.TELE, 0);
-    avf = avf.setSubjectiveValueWeight(Criterion.TERRACE, 0);
-    avf = avf.setSubjectiveValueWeight(Criterion.WIFI, 0);
+  public static void main(String[] args) throws IOException {
+    ProfileGUI profileSelector = new ProfileGUI();
+    profileSelector.askForProfile();
 
     LOGGER.info("Begining the Layout.");
 
-    LayoutApartmentGUI lay = new LayoutApartmentGUI(avf);
-    lay.displayAppart();
+     /*ProfileGUI lay = new ProfileGUI(avf);
+     lay.displayAppart();*/
   }
 
   /**
    * This function will create and display the window (interface) to ask the user questions and to
    * determine later the weight of his choices
    */
-  public void askQuestions() {
+  public void askForProfile() throws IOException {
+    Profile selected;
+    Map<ProfileType, Image> logos = new HashMap<>();
+    Map<ProfileType,Button> buttons = new ArrayList<>();
+    for(int i = 0; i<profiles.size()){
+      try (InputStream f = DisplayIcon.class.getResourceAsStream(profileTypesAvailable.get(i)+".png")) {
+        Image image = new Image(display, f);
+        Button b = new Button(shell,SWT.PUSH);
+        int x = marginHorizontal+i*(sizeImages+marginImages);
+        int y = marginVertical;
+        b.setBounds(x,y,sizeImages,sizeImages);
+        b.setImage(image);
+        Listener selectionlistener =
+                new Listener() {
+                  @Override
+                  public void handleEvent(Event event) {
 
-    // we add the other two criteria
-    choix1.add(Criterion.TELE);
-    choix2.add(Criterion.PRICE_PER_NIGHT);
+                    selected =ProfileManager.getProfile(profileTypesAvailable.get(i));
+                    shell.close();
+                  }
+                };
+        buttons.put(profiles.get(i),b);
+        logos.put(profiles.get(i), image);
+      }
 
-    shell.setText("Profile selection - Questions");
-    shell.setLayout(new GridLayout());
-    shell.setBounds(500, 500, 600, 500);
+    }
+    shell.setBackground(new Color(display, new RGB(180,180,180),0));
+    shell.pack();
+    shell.open();
+    while (!shell.isDisposed()) {
+      if (!display.readAndDispatch()) {
+        display.sleep();
+      }
+    }
+    shell.close();
+    display.dispose();
 
-    // for the first questions about minimum
-    final Group group = new Group(shell, SWT.NONE);
-    group.setText("Combien il vous faut pour accepter un apartement?");
-    group.setLayout(new GridLayout(2, false));
 
-    Label label1 = new Label(group, SWT.NONE);
-    label1.setText("Surface minimum?");
 
-    Text text1 = new Text(group, SWT.LEAD | SWT.BORDER);
-    text1.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 
-    Label label2 = new Label(group, SWT.NONE);
-    label2.setText("Nombre de chambre minimum?");
 
-    Text text2 = new Text(group, SWT.LEAD | SWT.BORDER);
-    text2.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 
-    // question about the importance of an element for the user
-    Group buttonGroup = new Group(shell, SWT.NONE);
-    GridLayout gridLayout = new GridLayout();
-    gridLayout.numColumns = 1;
-    buttonGroup.setLayout(gridLayout);
-    buttonGroup.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
-    buttonGroup.setText("Qu'est ce qui a le plus d'importance pour vous");
+
+
 
     // the listener when we click on finish
-    Listener finishlistener =
+    /*Listener finishlistener =
         new Listener() {
         @Override
 		public void handleEvent(Event event) {
@@ -183,7 +155,7 @@ public class AskOpinionForUtility {
                     + nbBedMin);
           }
         };
-
+*/
     // This is a submit button, it will close the shell when the user click on
     // Terminer
     final Button finish = new Button(shell, SWT.PUSH);
@@ -191,17 +163,6 @@ public class AskOpinionForUtility {
     finish.pack();
     finish.addListener(SWT.Selection, finishlistener);
 
-    // buttonchoix1 and buttonchoix2 are two radio buttons, to let the user chose
-    // between two options
-    Button buttonchoix1 = new Button(buttonGroup, SWT.RADIO);
-    buttonchoix1.setText("WIFI");
-
-    Button buttonchoix2 = new Button(buttonGroup, SWT.RADIO);
-    buttonchoix2.setText("TERRACE");
-
-    // when cliquing on theses buttons
-    clickOnButton(buttonchoix1, buttonchoix2);
-    clickOnButton(buttonchoix2, buttonchoix1);
 
     // open the window
     shell.open();
@@ -291,5 +252,11 @@ public class AskOpinionForUtility {
     }
 
     return avf;
+  }
+
+  private void centerDisplay(Display d, Shell s){
+    int x = (display.getClientArea().width - shell.getSize().x) / 2;
+    int y = (display.getClientArea().height - shell.getSize().y) / 2;
+    shell.setLocation(x,y);
   }
 }
