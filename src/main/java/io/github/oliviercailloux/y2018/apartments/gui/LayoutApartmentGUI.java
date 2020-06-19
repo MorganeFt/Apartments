@@ -36,9 +36,7 @@ public class LayoutApartmentGUI {
     listApp = getListSorted(avf);
   }
 
-  /**
-   * General method which displays all the sorted apartment
-   */
+  /** General method which displays all the sorted apartment */
   public void displayAppart() {
 
     addAppinListShell();
@@ -79,34 +77,66 @@ public class LayoutApartmentGUI {
     gridData.horizontalSpan = 2;
     appartInfo.setLayoutData(gridData);
 
-    // beginning of creation of elements to display when we click on an apartement
+    // beginning of creation of elements to display when we click on an apartment
     Label adresse;
     Label surface;
     Label prix;
     Label nbrChambres;
+    
+    Label wifi;
+    Label tv;
+    Label terrace;
+    Label nbBathroom;
+
+    GridData dataLabelAddress = new GridData(GridData.FILL_HORIZONTAL);
+    dataLabelAddress.widthHint = 250;
+    dataLabelAddress.heightHint = 45;
+
+    GridData dataLabel = new GridData(GridData.FILL_HORIZONTAL);
+    dataLabel.widthHint = 250;
 
     new Label(appartInfo, SWT.NULL).setText("Address :");
     adresse = new Label(appartInfo, SWT.SINGLE | SWT.BORDER);
-    adresse.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+    adresse.setLayoutData(dataLabelAddress);
 
     new Label(appartInfo, SWT.NULL).setText("Surface :");
     surface = new Label(appartInfo, SWT.SINGLE | SWT.BORDER);
-    surface.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+    surface.setLayoutData(dataLabel);
 
     new Label(appartInfo, SWT.NULL).setText("Price :");
     prix = new Label(appartInfo, SWT.SINGLE | SWT.BORDER);
-    prix.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+    prix.setLayoutData(dataLabel);
 
     new Label(appartInfo, SWT.NULL).setText("Number of bedrooms :");
     nbrChambres = new Label(appartInfo, SWT.SINGLE | SWT.BORDER);
-    nbrChambres.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+    nbrChambres.setLayoutData(dataLabel);
+    
+    new Label(appartInfo, SWT.NULL).setText("Number of bathrooms :");
+    nbBathroom = new Label(appartInfo, SWT.SINGLE | SWT.BORDER);
+    nbBathroom.setLayoutData(dataLabel);
+    
+    new Label(appartInfo, SWT.NULL).setText("Wifi :");
+    wifi = new Label(appartInfo, SWT.SINGLE | SWT.BORDER);
+    wifi.setLayoutData(dataLabel);
+    
+    new Label(appartInfo, SWT.NULL).setText("Tv :");
+    tv = new Label(appartInfo, SWT.SINGLE | SWT.BORDER);
+    tv.setLayoutData(dataLabel);
+    
+    new Label(appartInfo, SWT.NULL).setText("Terrace :");
+    terrace = new Label(appartInfo, SWT.SINGLE | SWT.BORDER);
+    terrace.setLayoutData(dataLabel);
 
     gridData = new GridData(GridData.HORIZONTAL_ALIGN_END);
     gridData.horizontalSpan = 3;
 
-    onClick(adresse, surface, prix, nbrChambres);
+    onClick(adresse, surface, prix, nbrChambres, nbBathroom, wifi, tv, terrace);
+    
+    Button button = new Button(shell, SWT.NONE);
+    button.setText("View more");
+    button.setSize(100,25);
 
-    shell.setSize(1000, 550);
+    shell.setSize(1180, 550);
     shell.open();
     LOGGER.info("The Shell was opened with success.");
 
@@ -147,9 +177,7 @@ public class LayoutApartmentGUI {
     return appart;
   }
 
-  /**
-   * Method that adds available apartments in the shell list to display
-   */
+  /** Method that adds available apartments in the shell list to display */
   public void addAppinListShell() {
     for (Apartment a : listApp) {
       LOGGER.debug("Appart : " + a);
@@ -162,10 +190,10 @@ public class LayoutApartmentGUI {
    * elements of the apartment
    *
    * @param listApp3 the list of apartments to display
-   * @param address, surface, price, number of bedrooms the parameters of apps to display when clicking on
-   *     an apartment
+   * @param address, surface, price, number of bedrooms the parameters of apps to display when
+   *     clicking on an apartment
    */
-  private void onClick(Label adresse, Label surface, Label prix, Label nbrChambres) {
+  private void onClick(Label adresse, Label surface, Label prix, Label nbrChambres, Label nbBathroom, Label wifi, Label tv, Label terrace) {
     // the listener when we click on an apartment
     SelectionAdapter selectApp =
         new SelectionAdapter() {
@@ -174,10 +202,18 @@ public class LayoutApartmentGUI {
             int[] selectedItems = listShell.getSelectionIndices();
 
             for (int loopIndex = 0; loopIndex < selectedItems.length; loopIndex++) {
-              adresse.setText(listApp.get(listShell.getSelectionIndex()).getAddress());
-              surface.setText(" " + listApp.get(listShell.getSelectionIndex()).getFloorArea());
-              prix.setText(" " + listApp.get(listShell.getSelectionIndex()).getPricePerNight());
+              adresse.setText(
+                  listApp.get(listShell.getSelectionIndex()).getAddress().replace(", ", "\n"));
+              surface.setText(
+                  " "
+                      + Math.round(listApp.get(listShell.getSelectionIndex()).getFloorArea())
+                      + "m²");
+              prix.setText(
+                  " "
+                      + Math.round(listApp.get(listShell.getSelectionIndex()).getPricePerNight())
+                      + "€");
               nbrChambres.setText(" " + listApp.get(listShell.getSelectionIndex()).getNbBedrooms());
+              nbBathroom.setText(" " + listApp.get(listShell.getSelectionIndex()).getNbBathrooms());
             }
           }
         };
@@ -195,6 +231,5 @@ public class LayoutApartmentGUI {
 
     LayoutApartmentGUI layout = new LayoutApartmentGUI(avf);
     layout.displayAppart();
-
   }
 }
