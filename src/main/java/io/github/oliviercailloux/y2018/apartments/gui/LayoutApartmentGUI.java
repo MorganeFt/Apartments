@@ -17,7 +17,7 @@ import org.slf4j.LoggerFactory;
 /** this class displays a list of apartments sorted according to the user's utilities */
 public class LayoutApartmentGUI {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(CreateApartmentGUI.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(LayoutApartmentGUI.class);
 
   java.util.List<Apartment> listApp;
   LinearAVF linearAVF;
@@ -151,24 +151,27 @@ public class LayoutApartmentGUI {
    *
    * @param avf a way to rate the apartments
    */
-  private static java.util.List<Apartment> getListSorted(LinearAVF LinearAVF) {
+  private static java.util.List<Apartment> getListSorted(LinearAVF linearAVF) {
     java.util.List<Apartment> listApartment = JsonConvert.getDefaultApartments();
     java.util.List<Apartment> appart = new ArrayList<>();
-    java.util.List<Integer> randomList = new ArrayList<>();
-    Random ran = new Random();
-    int newRandom = ran.nextInt(499);
+//    java.util.List<Integer> randomList = new ArrayList<>();
+//    Random ran = new Random();
+//    int newRandom = ran.nextInt(499);
 
     for (int i = 0; i < 49; i++) {
-      while (randomList.indexOf(newRandom) != -1) {
-        newRandom = ran.nextInt(499);
-      }
-      randomList.add(newRandom);
-      appart.add(listApartment.get(randomList.get(i)));
+//    	FOR TEST KEEPING THE SAME 50 APART
+    	
+//      while (randomList.indexOf(newRandom) != -1) {
+//        newRandom = ran.nextInt(499);
+//      }
+//      randomList.add(newRandom);
+//      appart.add(listApartment.get(randomList.get(newRandom)));
+    	appart.add(listApartment.get(i));
     }
 
     appart.sort(
         (Apartment c, Apartment d) -> {
-          return -Double.compare(LinearAVF.getSubjectiveValue(c), LinearAVF.getSubjectiveValue(d));
+          return -Double.compare(linearAVF.getSubjectiveValue(c), linearAVF.getSubjectiveValue(d));
         });
 
     return appart;
@@ -177,7 +180,6 @@ public class LayoutApartmentGUI {
   /** Method that adds available apartments in the shell list to display */
   public void addAppinListShell() {
     for (Apartment a : listApp) {
-      LOGGER.debug("Appart : " + a);
       listShell.add("Title: " + a.getTitle() + "\t" + " Address : " + a.getAddress());
     }
   }

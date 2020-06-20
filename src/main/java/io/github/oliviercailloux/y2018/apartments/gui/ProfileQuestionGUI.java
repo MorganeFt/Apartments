@@ -4,9 +4,6 @@ import io.github.oliviercailloux.y2018.apartments.valuefunction.LinearAVF;
 import io.github.oliviercailloux.y2018.apartments.valuefunction.profile.Profile;
 import io.github.oliviercailloux.y2018.apartments.valuefunction.profile.ProfileManager;
 import io.github.oliviercailloux.y2018.apartments.valuefunction.profile.ProfileType;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -26,43 +23,25 @@ public class ProfileQuestionGUI {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(ProfileQuestionGUI.class);
 
-  /** To move for questions */
-  int pointer = 0;
-
-  /** Keeps the user’s answers (when he presses the button) */
-  List<String> moreImportantAttributes;
-
-  /** Stock the attribute that the user didn't answer (the unpressed button) */
-  List<String> lessImportantAttributes;
-
   String trueQuestionPriceArea;
   String falseQuestionPriceArea;
-
-  double surfaceMin;
-  double nbBedMin;
 
   Display display;
   Shell shell;
 
   public ProfileQuestionGUI() {
-    this.moreImportantAttributes = new ArrayList<>();
-    this.lessImportantAttributes = new ArrayList<>();
     this.trueQuestionPriceArea = "Yes";
     this.falseQuestionPriceArea = "No";
-    this.surfaceMin = 0d;
-    this.nbBedMin = 0d;
-    this.pointer = 0;
     this.display = new Display();
     this.shell = new Shell(display);
   }
 
   /**
+   * JUST FOR TESTING MUST BE ADAPT 
    * This is the main function, it asks Questions , AdaptAnswers and then displays the list of
    * Apartments
    *
    * @param args
-   * @throws IllegalAccessException for the DisplayApps function
-   * @throws IOException
    */
   public static void main(String[] args) {
 
@@ -162,16 +141,14 @@ public class ProfileQuestionGUI {
           }
         };
 
-    // This is a submit button, it will close the shell when the user click on
-    // Terminer
+    // This is a submit button, it will close the shell when the user click on Submit
     final Button finish = new Button(shell, SWT.PUSH);
-    finish.setText("Terminé");
+    finish.setText("Submit");
     finish.pack();
     finish.addListener(SWT.Selection, finishlistener);
 
     // open the window
     shell.open();
-    LOGGER.info("The Shell was opened with success.");
     while (!shell.isDisposed()) {
 
       if (!display.readAndDispatch()) {
