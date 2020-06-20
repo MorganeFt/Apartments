@@ -32,7 +32,7 @@ public class Profile {
   private Range<Double> pricePerNightSubjectiveValueWeightRange;
   private Range<Double> nbMinNightSubjectiveValueWeightRange;
   private Range<Double> teleSubjectiveValueWeightRange;
-  
+
   private QuestionPriceArea myQuestionPriceArea;
 
   private Profile() {
@@ -312,12 +312,12 @@ public class Profile {
       return this;
     }
   }
-  
+
   public String getQuestionPriceArea() {
-  	return myQuestionPriceArea.getQuestion();
+    return myQuestionPriceArea.getQuestion();
   }
 
-public QuestionPriceArea getMyQuestionPriceArea() {
-	return myQuestionPriceArea;
-}
+  public QuestionPriceArea getMyQuestionPriceArea() {
+    return myQuestionPriceArea;
+  }
 }

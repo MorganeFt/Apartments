@@ -1,9 +1,12 @@
 package io.github.oliviercailloux.y2018.apartments.gui;
 
+import io.github.oliviercailloux.y2018.apartments.valuefunction.LinearAVF;
+import io.github.oliviercailloux.y2018.apartments.valuefunction.profile.Profile;
+import io.github.oliviercailloux.y2018.apartments.valuefunction.profile.ProfileManager;
+import io.github.oliviercailloux.y2018.apartments.valuefunction.profile.ProfileType;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -19,173 +22,166 @@ import org.eclipse.swt.widgets.Shell;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.github.oliviercailloux.y2018.apartments.valuefunction.ApartmentValueFunction;
-import io.github.oliviercailloux.y2018.apartments.valuefunction.LinearAVF;
-import io.github.oliviercailloux.y2018.apartments.valuefunction.profile.Profile;
-import io.github.oliviercailloux.y2018.apartments.valuefunction.profile.ProfileManager;
-import io.github.oliviercailloux.y2018.apartments.valuefunction.profile.ProfileType;
-
 public class ProfileQuestionGUI {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(ProfileQuestionGUI.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(ProfileQuestionGUI.class);
 
-	/** To move for questions */
-	int pointer = 0;
+  /** To move for questions */
+  int pointer = 0;
 
-	/** Keeps the user’s answers (when he presses the button) */
-	List<String> moreImportantAttributes;
+  /** Keeps the user’s answers (when he presses the button) */
+  List<String> moreImportantAttributes;
 
-	/** Stock the attribute that the user didn't answer (the unpressed button) */
-	List<String> lessImportantAttributes;
+  /** Stock the attribute that the user didn't answer (the unpressed button) */
+  List<String> lessImportantAttributes;
 
-	String trueQuestionPriceArea;
-	String falseQuestionPriceArea;
+  String trueQuestionPriceArea;
+  String falseQuestionPriceArea;
 
-	double surfaceMin;
-	double nbBedMin;
+  double surfaceMin;
+  double nbBedMin;
 
-	Display display;
-	Shell shell;
+  Display display;
+  Shell shell;
 
-	public ProfileQuestionGUI() {
-		this.moreImportantAttributes = new ArrayList<>();
-		this.lessImportantAttributes = new ArrayList<>();
-		this.trueQuestionPriceArea = "Yes";
-		this.falseQuestionPriceArea = "No";
-		this.surfaceMin = 0d;
-		this.nbBedMin = 0d;
-		this.pointer = 0;
-		this.display = new Display();
-		this.shell = new Shell(display);
-	}
+  public ProfileQuestionGUI() {
+    this.moreImportantAttributes = new ArrayList<>();
+    this.lessImportantAttributes = new ArrayList<>();
+    this.trueQuestionPriceArea = "Yes";
+    this.falseQuestionPriceArea = "No";
+    this.surfaceMin = 0d;
+    this.nbBedMin = 0d;
+    this.pointer = 0;
+    this.display = new Display();
+    this.shell = new Shell(display);
+  }
 
-	/**
-	 * This is the main function, it asks Questions , AdaptAnswers and then displays
-	 * the list of Apartments
-	 *
-	 * @param args
-	 * @throws IllegalAccessException for the DisplayApps function
-	 * @throws IOException
-	 */
-	public static void main(String[] args) {
+  /**
+   * This is the main function, it asks Questions , AdaptAnswers and then displays the list of
+   * Apartments
+   *
+   * @param args
+   * @throws IllegalAccessException for the DisplayApps function
+   * @throws IOException
+   */
+  public static void main(String[] args) {
 
-		ProfileQuestionGUI asker = new ProfileQuestionGUI();
+    ProfileQuestionGUI asker = new ProfileQuestionGUI();
 
-		ProfileType profileTypeSelected = ProfileType.COUPLE;
-		LinearAVF newLinearAVF = asker.askQuestions(profileTypeSelected);
+    ProfileType profileTypeSelected = ProfileType.COUPLE;
+    LinearAVF newLinearAVF = asker.askQuestions(profileTypeSelected);
 
-		LOGGER.info("Begining the Layout.");
-		
-		LayoutApartmentGUI lay = new LayoutApartmentGUI(newLinearAVF);
-		lay.displayAppart();
+    LOGGER.info("Begining the Layout.");
 
-		
-	}
+    LayoutApartmentGUI lay = new LayoutApartmentGUI(newLinearAVF);
+    lay.displayAppart();
+  }
 
-	/**
-	 * This function will create and display the window (interface) to ask the user
-	 * questions and to determine later the weight of his choices
-	 * @return 
-	 */
-	public LinearAVF askQuestions(ProfileType profileTypeSelected) {
-		Profile profileSelected = ProfileManager.getInstance().getProfile(profileTypeSelected);
-		String profileName = profileTypeSelected.name().substring(0, 1)
-				+ profileTypeSelected.name().toLowerCase().substring(1);
+  /**
+   * This function will create and display the window (interface) to ask the user questions and to
+   * determine later the weight of his choices
+   *
+   * @return
+   */
+  public LinearAVF askQuestions(ProfileType profileTypeSelected) {
+    Profile profileSelected = ProfileManager.getInstance().getProfile(profileTypeSelected);
+    String profileName =
+        profileTypeSelected.name().substring(0, 1)
+            + profileTypeSelected.name().toLowerCase().substring(1);
 
-		shell.setText("Profile selection - Questions");
-		shell.setLayout(new GridLayout());
-		shell.setBounds(500, 500, 600, 500);
+    shell.setText("Profile selection - Questions");
+    shell.setLayout(new GridLayout());
+    shell.setBounds(500, 500, 600, 500);
 
-		// for the first questions about minimum
-		final Group group = new Group(shell, SWT.NONE);
-		group.setText("Profile selected : " + profileName);
-		group.setLayout(new GridLayout(2, false));
+    // for the first questions about minimum
+    final Group group = new Group(shell, SWT.NONE);
+    group.setText("Profile selected : " + profileName);
+    group.setLayout(new GridLayout(2, false));
 
-		// question about the importance of an element for the user
-		Group buttonGroup = new Group(shell, SWT.NONE);
-		GridLayout gridLayout = new GridLayout();
-		gridLayout.numColumns = 1;
-		buttonGroup.setLayout(gridLayout);
-		buttonGroup.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+    // question about the importance of an element for the user
+    Group buttonGroup = new Group(shell, SWT.NONE);
+    GridLayout gridLayout = new GridLayout();
+    gridLayout.numColumns = 1;
+    buttonGroup.setLayout(gridLayout);
+    buttonGroup.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 
-		Label label = new Label(buttonGroup, SWT.NONE);
-		label.setText(profileSelected.getQuestionPriceArea());
+    Label label = new Label(buttonGroup, SWT.NONE);
+    label.setText(profileSelected.getQuestionPriceArea());
 
-		// buttonchoix1 and buttonchoix2 are two radio buttons, to let the user chose
-		// between two options
-		Button buttonchoix1 = new Button(buttonGroup, SWT.RADIO);
-		buttonchoix1.setText(trueQuestionPriceArea);
-		buttonchoix1.setSelection(false);
+    // buttonchoix1 and buttonchoix2 are two radio buttons, to let the user chose
+    // between two options
+    Button buttonchoix1 = new Button(buttonGroup, SWT.RADIO);
+    buttonchoix1.setText(trueQuestionPriceArea);
+    buttonchoix1.setSelection(false);
 
-		Button buttonchoix2 = new Button(buttonGroup, SWT.RADIO);
-		buttonchoix2.setText(falseQuestionPriceArea);
-		buttonchoix2.setSelection(false);
+    Button buttonchoix2 = new Button(buttonGroup, SWT.RADIO);
+    buttonchoix2.setText(falseQuestionPriceArea);
+    buttonchoix2.setSelection(false);
 
-		Label labelAnswer = new Label(shell, SWT.NONE);
-		labelAnswer.setForeground(display.getSystemColor(SWT.COLOR_BLUE));
+    Label labelAnswer = new Label(shell, SWT.NONE);
+    labelAnswer.setForeground(display.getSystemColor(SWT.COLOR_BLUE));
 
-		buttonchoix1.addSelectionListener(new SelectionAdapter() {
+    buttonchoix1.addSelectionListener(
+        new SelectionAdapter() {
 
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				Button source = (Button) e.widget;
+          @Override
+          public void widgetSelected(SelectionEvent e) {
+            Button source = (Button) e.widget;
 
-				if (source.getSelection()) {
-					labelAnswer.setText("You are " + source.getText());
-					labelAnswer.pack();
-					profileSelected.getMyQuestionPriceArea().resolve(profileSelected, true);
-				}
-			}
+            if (source.getSelection()) {
+              labelAnswer.setText("You are " + source.getText());
+              labelAnswer.pack();
+              profileSelected.getMyQuestionPriceArea().resolve(profileSelected, true);
+            }
+          }
+        });
 
-		});
+    buttonchoix2.addSelectionListener(
+        new SelectionAdapter() {
 
-		buttonchoix2.addSelectionListener(new SelectionAdapter() {
+          @Override
+          public void widgetSelected(SelectionEvent e) {
+            Button source = (Button) e.getSource();
 
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				Button source = (Button) e.getSource();
+            if (source.getSelection()) {
+              labelAnswer.setText("You are " + source.getText());
+              labelAnswer.pack();
+              profileSelected.getMyQuestionPriceArea().resolve(profileSelected, false);
+            }
+          }
+        });
 
-				if (source.getSelection()) {
-					labelAnswer.setText("You are " + source.getText());
-					labelAnswer.pack();
-					profileSelected.getMyQuestionPriceArea().resolve(profileSelected, false);
-				}
-			}
+    // the listener when we click on finish
+    Listener finishlistener =
+        new Listener() {
+          @Override
+          public void handleEvent(Event event) {
+            shell.close();
 
-		});
+            LOGGER.info("ProfileQuestionGUI closed");
+          }
+        };
 
-		// the listener when we click on finish
-		Listener finishlistener = new Listener() {
-			@Override
-			public void handleEvent(Event event) {
-				shell.close();
+    // This is a submit button, it will close the shell when the user click on
+    // Terminer
+    final Button finish = new Button(shell, SWT.PUSH);
+    finish.setText("Terminé");
+    finish.pack();
+    finish.addListener(SWT.Selection, finishlistener);
 
-				
+    // open the window
+    shell.open();
+    LOGGER.info("The Shell was opened with success.");
+    while (!shell.isDisposed()) {
 
-				LOGGER.info("ProfileQuestionGUI closed");
-			}
-		};
+      if (!display.readAndDispatch()) {
 
-		// This is a submit button, it will close the shell when the user click on
-		// Terminer
-		final Button finish = new Button(shell, SWT.PUSH);
-		finish.setText("Terminé");
-		finish.pack();
-		finish.addListener(SWT.Selection, finishlistener);
+        display.sleep();
+      }
+    }
+    display.dispose();
+    LOGGER.info("The screen was closed with success.");
 
-		// open the window
-		shell.open();
-		LOGGER.info("The Shell was opened with success.");
-		while (!shell.isDisposed()) {
-
-			if (!display.readAndDispatch()) {
-
-				display.sleep();
-			}
-		}
-		display.dispose();
-		LOGGER.info("The screen was closed with success.");
-		
-		return profileSelected.getLinearAVF();
-	}
+    return profileSelected.getLinearAVF();
+  }
 }

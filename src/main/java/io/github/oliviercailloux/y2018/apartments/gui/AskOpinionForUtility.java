@@ -106,8 +106,8 @@ public class AskOpinionForUtility {
 
     LOGGER.info("Begining the Layout.");
 
-//    LayoutApartmentGUI lay = new LayoutApartmentGUI(avf);
-//    lay.displayAppart();
+    //    LayoutApartmentGUI lay = new LayoutApartmentGUI(avf);
+    //    lay.displayAppart();
   }
 
   /**
