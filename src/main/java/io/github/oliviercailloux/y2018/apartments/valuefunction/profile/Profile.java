@@ -32,6 +32,8 @@ public class Profile {
   private Range<Double> pricePerNightSubjectiveValueWeightRange;
   private Range<Double> nbMinNightSubjectiveValueWeightRange;
   private Range<Double> teleSubjectiveValueWeightRange;
+  
+  private QuestionPriceArea myQuestionPriceArea;
 
   private Profile() {
     LinearAVF.Builder blavf =
@@ -60,6 +62,7 @@ public class Profile {
     this.pricePerNightSubjectiveValueWeightRange = null;
     this.nbMinNightSubjectiveValueWeightRange = null;
     this.teleSubjectiveValueWeightRange = null;
+    this.myQuestionPriceArea = QuestionPriceArea.create(50, 10);
   }
 
   /**
@@ -309,4 +312,12 @@ public class Profile {
       return this;
     }
   }
+  
+  public String getQuestionPriceArea() {
+  	return myQuestionPriceArea.getQuestion();
+  }
+
+public QuestionPriceArea getMyQuestionPriceArea() {
+	return myQuestionPriceArea;
+}
 }

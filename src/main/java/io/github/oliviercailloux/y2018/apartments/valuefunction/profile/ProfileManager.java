@@ -36,7 +36,6 @@ public class ProfileManager {
             .build();
     Profile student =
         new Profile.Builder()
-            .setLinearAVF(studentLavf)
             .setWeightRange(Criterion.PRICE_PER_NIGHT, 15d, 35d)
             .setWeightRange(Criterion.WIFI, 15d, 35d)
             .setWeightRange(Criterion.TERRACE, 0d, 15d)
@@ -47,6 +46,7 @@ public class ProfileManager {
             .setWeightRange(Criterion.NB_BATHROOMS, 0d, 10d)
             .setWeightRange(Criterion.NB_MIN_NIGHT, 0d, 10d)
             .setWeightRange(Criterion.FLOOR_AREA_TERRACE, 0d, 10d)
+            .setLinearAVF(studentLavf)
             .build();
 
     LinearAVF familyLavf =
@@ -74,7 +74,6 @@ public class ProfileManager {
             .build();
     Profile family =
         new Profile.Builder()
-            .setLinearAVF(familyLavf)
             .setWeightRange(Criterion.PRICE_PER_NIGHT, 0d, 20d)
             .setWeightRange(Criterion.WIFI, 0d, 20d)
             .setWeightRange(Criterion.TERRACE, 0d, 20d)
@@ -85,6 +84,7 @@ public class ProfileManager {
             .setWeightRange(Criterion.NB_BATHROOMS, 2.5d, 22.5d)
             .setWeightRange(Criterion.NB_MIN_NIGHT, 0d, 10d)
             .setWeightRange(Criterion.FLOOR_AREA_TERRACE, 0d, 10d)
+            .setLinearAVF(familyLavf)
             .build();
 
     LinearAVF coupleLavf =
@@ -112,7 +112,6 @@ public class ProfileManager {
             .build();
     Profile couple =
         new Profile.Builder()
-            .setLinearAVF(coupleLavf)
             .setWeightRange(Criterion.PRICE_PER_NIGHT, 6d, 26d)
             .setWeightRange(Criterion.WIFI, 6d, 26d)
             .setWeightRange(Criterion.TERRACE, 6d, 26d)
@@ -123,6 +122,7 @@ public class ProfileManager {
             .setWeightRange(Criterion.NB_BATHROOMS, 0d, 11d)
             .setWeightRange(Criterion.NB_MIN_NIGHT, 0d, 11d)
             .setWeightRange(Criterion.FLOOR_AREA_TERRACE, 0d, 11d)
+            .setLinearAVF(coupleLavf)
             .build();
 
     this.mapProfile.put(ProfileType.STUDENT, student);
