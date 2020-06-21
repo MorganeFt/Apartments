@@ -79,7 +79,6 @@ public class LayoutApartmentGUI {
     Label surface;
     Label prix;
     Label nbrChambres;
-
     Label wifi;
     Label tv;
     Label terrace;
@@ -95,6 +94,9 @@ public class LayoutApartmentGUI {
     dataLabelAddress.heightHint = 45;
 
     GridData dataLabel = new GridData(GridData.FILL_HORIZONTAL);
+    dataLabel.widthHint = 250;
+    
+    GridData dataLabelHide = new GridData(GridData.FILL_HORIZONTAL);
     dataLabel.widthHint = 250;
 
     new Label(appartInfo, SWT.NULL).setText("Address :");
@@ -117,56 +119,72 @@ public class LayoutApartmentGUI {
     nbBathroomLabel.setText("Number of bathrooms :");
     nbBathroomLabel.setVisible(false);
     nbBathroom = new Label(appartInfo, SWT.SINGLE | SWT.BORDER);
-    nbBathroom.setLayoutData(dataLabel);
+    nbBathroom.setLayoutData(dataLabelHide);
     nbBathroom.setVisible(false);
 
     wifiLabel = new Label(appartInfo, SWT.NULL);
     wifiLabel.setText("Wifi :");
     wifiLabel.setVisible(false);
     wifi = new Label(appartInfo, SWT.SINGLE | SWT.BORDER);
-    wifi.setLayoutData(dataLabel);
+    wifi.setLayoutData(dataLabelHide);
     wifi.setVisible(false);
 
     tvLabel = new Label(appartInfo, SWT.NULL);
     tvLabel.setText("Tv :");
     tvLabel.setVisible(false);
     tv = new Label(appartInfo, SWT.SINGLE | SWT.BORDER);
-    tv.setLayoutData(dataLabel);
+    tv.setLayoutData(dataLabelHide);
     tv.setVisible(false);
 
     terraceLabel = new Label(appartInfo, SWT.NULL);
     terraceLabel.setText("Terrace :");
     terraceLabel.setVisible(false);
     terrace = new Label(appartInfo, SWT.SINGLE | SWT.BORDER);
-    terrace.setLayoutData(dataLabel);
+    terrace.setLayoutData(dataLabelHide);
     terrace.setVisible(false);
-
+    
     gridData = new GridData(GridData.HORIZONTAL_ALIGN_END);
     gridData.horizontalSpan = 3;
-
-    onClick(adresse, surface, prix, nbrChambres, nbBathroom, wifi, tv, terrace);
-
-    Listener viewMoreListener =
-            new Listener() {
-              @Override
-              public void handleEvent(Event event) {
-            	  nbBathroomLabel.setVisible(true);
-            	  wifiLabel.setVisible(true);
-            	  tvLabel.setVisible(true);
-            	  terraceLabel.setVisible(true);
-            	  nbBathroom.setVisible(true);
-            	  wifi.setVisible(true);
-            	  tv.setVisible(true);
-            	  terrace.setVisible(true);
-
-              }
-            };
+    onClick(adresse, surface, prix, nbrChambres, nbBathroom, wifi, tv, terrace);            
     
     Button button = new Button(shell, SWT.NONE);
     button.setText("View more");
     button.setSize(100, 25);
-    button.addListener(SWT.Selection, viewMoreListener);
+    button.addListener(SWT.Selection, new Listener() {
+        @Override
+        public void handleEvent(Event event) {
+          if (button.getText().equals("View more")) {
+        	  nbBathroomLabel.setVisible(true);
+          	  wifiLabel.setVisible(true);
+          	  tvLabel.setVisible(true);
+          	  terraceLabel.setVisible(true);
+          	  nbBathroom.setVisible(true);
+          	  wifi.setVisible(true);
+          	  tv.setVisible(true);
+          	  terrace.setVisible(true);
+          	  
 
+              dataLabelHide.exclude = false;
+              appartInfo.pack();
+
+              button.setText("Hide fields");
+		} else {
+			nbBathroomLabel.setVisible(false);
+        	  wifiLabel.setVisible(false);
+        	  tvLabel.setVisible(false);
+        	  terraceLabel.setVisible(false);
+        	  nbBathroom.setVisible(false);
+        	  wifi.setVisible(false);
+        	  tv.setVisible(false);
+        	  terrace.setVisible(false);
+        	  
+        	  dataLabelHide.exclude = true;
+
+            button.setText("View more");
+		}
+        }
+      });
+    
     shell.setSize(1180, 550);
     shell.open();
     LOGGER.info("The Shell was opened with success.");
@@ -243,16 +261,16 @@ public class LayoutApartmentGUI {
             int[] selectedItems = listShell.getSelectionIndices();
 
             for (int loopIndex = 0; loopIndex < selectedItems.length; loopIndex++) {
-              adresse.setText(
-                  listApp.get(listShell.getSelectionIndex()).getAddress().replace(", ", "\n"));
-              surface.setText(
-                  " "
-                      + Math.round(listApp.get(listShell.getSelectionIndex()).getFloorArea())
-                      + "m²");
-              prix.setText(
-                  " "
-                      + Math.round(listApp.get(listShell.getSelectionIndex()).getPricePerNight())
-                      + "€");
+            	adresse.setText(
+                        listApp.get(listShell.getSelectionIndex()).getAddress().replace(", ", "\n"));
+                    surface.setText(
+                        " "
+                            + Math.round(listApp.get(listShell.getSelectionIndex()).getFloorArea())
+                            + "m²");
+                    prix.setText(
+                        " "
+                            + Math.round(listApp.get(listShell.getSelectionIndex()).getPricePerNight())
+                            + "€");
               nbrChambres.setText(" " + listApp.get(listShell.getSelectionIndex()).getNbBedrooms());
               nbBathroom.setText(" " + listApp.get(listShell.getSelectionIndex()).getNbBathrooms());
               wifi.setText(" " + listApp.get(listShell.getSelectionIndex()).getWifi());
