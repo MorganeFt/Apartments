@@ -4,9 +4,17 @@ import io.github.oliviercailloux.y2018.apartments.valuefunction.LinearAVF;
 import io.github.oliviercailloux.y2018.apartments.valuefunction.profile.Profile;
 import io.github.oliviercailloux.y2018.apartments.valuefunction.profile.ProfileManager;
 import io.github.oliviercailloux.y2018.apartments.valuefunction.profile.ProfileType;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
@@ -73,8 +81,24 @@ public class ProfileQuestionGUI {
 
     // for the first questions about minimum
     final Group group = new Group(shell, SWT.NONE);
-    group.setText("Profile selected : " + profileName);
+    group.setText("Profile selected : ");
     group.setLayout(new GridLayout(2, false));
+    
+    Label imageLabel = new Label(group, SWT.NONE);
+    Label imageLabelText = new Label(group, SWT.NONE);
+    
+    try (InputStream f = ProfileQuestionGUI.class.getResourceAsStream(profileName + ".png")) {
+      Image image =
+          new Image(
+              this.display,
+              new Image(this.display, f).getImageData().scaledTo(70, 70));
+
+     imageLabel.setImage(image);
+      
+    } catch (IOException e1) {
+		throw new IllegalArgumentException(e1);
+	}
+    imageLabelText.setText(profileName);
 
     // question about the importance of an element for the user
     Group buttonGroup = new Group(shell, SWT.NONE);
