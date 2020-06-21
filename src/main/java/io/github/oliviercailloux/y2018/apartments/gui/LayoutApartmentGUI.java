@@ -84,6 +84,11 @@ public class LayoutApartmentGUI {
     Label tv;
     Label terrace;
     Label nbBathroom;
+    
+    Label wifiLabel;
+    Label tvLabel;
+    Label terraceLabel;
+    Label nbBathroomLabel;
 
     GridData dataLabelAddress = new GridData(GridData.FILL_HORIZONTAL);
     dataLabelAddress.widthHint = 250;
@@ -108,30 +113,59 @@ public class LayoutApartmentGUI {
     nbrChambres = new Label(appartInfo, SWT.SINGLE | SWT.BORDER);
     nbrChambres.setLayoutData(dataLabel);
 
-    new Label(appartInfo, SWT.NULL).setText("Number of bathrooms :");
+    nbBathroomLabel = new Label(appartInfo, SWT.NULL);
+    nbBathroomLabel.setText("Number of bathrooms :");
+    nbBathroomLabel.setVisible(false);
     nbBathroom = new Label(appartInfo, SWT.SINGLE | SWT.BORDER);
     nbBathroom.setLayoutData(dataLabel);
+    nbBathroom.setVisible(false);
 
-    new Label(appartInfo, SWT.NULL).setText("Wifi :");
+    wifiLabel = new Label(appartInfo, SWT.NULL);
+    wifiLabel.setText("Wifi :");
+    wifiLabel.setVisible(false);
     wifi = new Label(appartInfo, SWT.SINGLE | SWT.BORDER);
     wifi.setLayoutData(dataLabel);
+    wifi.setVisible(false);
 
-    new Label(appartInfo, SWT.NULL).setText("Tv :");
+    tvLabel = new Label(appartInfo, SWT.NULL);
+    tvLabel.setText("Tv :");
+    tvLabel.setVisible(false);
     tv = new Label(appartInfo, SWT.SINGLE | SWT.BORDER);
     tv.setLayoutData(dataLabel);
+    tv.setVisible(false);
 
-    new Label(appartInfo, SWT.NULL).setText("Terrace :");
+    terraceLabel = new Label(appartInfo, SWT.NULL);
+    terraceLabel.setText("Terrace :");
+    terraceLabel.setVisible(false);
     terrace = new Label(appartInfo, SWT.SINGLE | SWT.BORDER);
     terrace.setLayoutData(dataLabel);
+    terrace.setVisible(false);
 
     gridData = new GridData(GridData.HORIZONTAL_ALIGN_END);
     gridData.horizontalSpan = 3;
 
     onClick(adresse, surface, prix, nbrChambres, nbBathroom, wifi, tv, terrace);
 
+    Listener viewMoreListener =
+            new Listener() {
+              @Override
+              public void handleEvent(Event event) {
+            	  nbBathroomLabel.setVisible(true);
+            	  wifiLabel.setVisible(true);
+            	  tvLabel.setVisible(true);
+            	  terraceLabel.setVisible(true);
+            	  nbBathroom.setVisible(true);
+            	  wifi.setVisible(true);
+            	  tv.setVisible(true);
+            	  terrace.setVisible(true);
+
+              }
+            };
+    
     Button button = new Button(shell, SWT.NONE);
     button.setText("View more");
     button.setSize(100, 25);
+    button.addListener(SWT.Selection, viewMoreListener);
 
     shell.setSize(1180, 550);
     shell.open();
@@ -221,6 +255,9 @@ public class LayoutApartmentGUI {
                       + "€");
               nbrChambres.setText(" " + listApp.get(listShell.getSelectionIndex()).getNbBedrooms());
               nbBathroom.setText(" " + listApp.get(listShell.getSelectionIndex()).getNbBathrooms());
+              wifi.setText(" " + listApp.get(listShell.getSelectionIndex()).getWifi());
+              tv.setText(" " + listApp.get(listShell.getSelectionIndex()).getTele());
+              terrace.setText(" " + listApp.get(listShell.getSelectionIndex()).getTerrace());
             }
           }
         };
