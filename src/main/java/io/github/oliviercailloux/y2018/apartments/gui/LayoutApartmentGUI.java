@@ -4,7 +4,6 @@ import io.github.oliviercailloux.y2018.apartments.apartment.Apartment;
 import io.github.oliviercailloux.y2018.apartments.apartment.json.JsonConvert;
 import io.github.oliviercailloux.y2018.apartments.valuefunction.LinearAVF;
 import java.util.ArrayList;
-import java.util.Random;
 import org.eclipse.swt.*;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -83,7 +82,7 @@ public class LayoutApartmentGUI {
     Label tv;
     Label terrace;
     Label nbBathroom;
-    
+
     Label wifiLabel;
     Label tvLabel;
     Label terraceLabel;
@@ -95,7 +94,7 @@ public class LayoutApartmentGUI {
 
     GridData dataLabel = new GridData(GridData.FILL_HORIZONTAL);
     dataLabel.widthHint = 250;
-    
+
     GridData dataLabelHide = new GridData(GridData.FILL_HORIZONTAL);
     dataLabel.widthHint = 250;
 
@@ -142,49 +141,50 @@ public class LayoutApartmentGUI {
     terrace = new Label(appartInfo, SWT.SINGLE | SWT.BORDER);
     terrace.setLayoutData(dataLabelHide);
     terrace.setVisible(false);
-    
+
     gridData = new GridData(GridData.HORIZONTAL_ALIGN_END);
     gridData.horizontalSpan = 3;
-    onClick(adresse, surface, prix, nbrChambres, nbBathroom, wifi, tv, terrace);            
-    
+    onClick(adresse, surface, prix, nbrChambres, nbBathroom, wifi, tv, terrace);
+
     Button button = new Button(shell, SWT.NONE);
     button.setText("View more");
     button.setSize(100, 25);
-    button.addListener(SWT.Selection, new Listener() {
-        @Override
-        public void handleEvent(Event event) {
-          if (button.getText().equals("View more")) {
-        	  nbBathroomLabel.setVisible(true);
-          	  wifiLabel.setVisible(true);
-          	  tvLabel.setVisible(true);
-          	  terraceLabel.setVisible(true);
-          	  nbBathroom.setVisible(true);
-          	  wifi.setVisible(true);
-          	  tv.setVisible(true);
-          	  terrace.setVisible(true);
-          	  
+    button.addListener(
+        SWT.Selection,
+        new Listener() {
+          @Override
+          public void handleEvent(Event event) {
+            if (button.getText().equals("View more")) {
+              nbBathroomLabel.setVisible(true);
+              wifiLabel.setVisible(true);
+              tvLabel.setVisible(true);
+              terraceLabel.setVisible(true);
+              nbBathroom.setVisible(true);
+              wifi.setVisible(true);
+              tv.setVisible(true);
+              terrace.setVisible(true);
 
               dataLabelHide.exclude = false;
               appartInfo.pack();
 
               button.setText("Hide fields");
-		} else {
-			nbBathroomLabel.setVisible(false);
-        	  wifiLabel.setVisible(false);
-        	  tvLabel.setVisible(false);
-        	  terraceLabel.setVisible(false);
-        	  nbBathroom.setVisible(false);
-        	  wifi.setVisible(false);
-        	  tv.setVisible(false);
-        	  terrace.setVisible(false);
-        	  
-        	  dataLabelHide.exclude = true;
+            } else {
+              nbBathroomLabel.setVisible(false);
+              wifiLabel.setVisible(false);
+              tvLabel.setVisible(false);
+              terraceLabel.setVisible(false);
+              nbBathroom.setVisible(false);
+              wifi.setVisible(false);
+              tv.setVisible(false);
+              terrace.setVisible(false);
 
-            button.setText("View more");
-		}
-        }
-      });
-    
+              dataLabelHide.exclude = true;
+
+              button.setText("View more");
+            }
+          }
+        });
+
     shell.setSize(1180, 550);
     shell.open();
     LOGGER.info("The Shell was opened with success.");
@@ -206,19 +206,19 @@ public class LayoutApartmentGUI {
   private static java.util.List<Apartment> getListSorted(LinearAVF linearAVF) {
     java.util.List<Apartment> listApartment = JsonConvert.getDefaultApartments();
     java.util.List<Apartment> appart = new ArrayList<>();
-//    java.util.List<Integer> randomList = new ArrayList<>();
-//    Random ran = new Random();
-//    int newRandom = ran.nextInt(499);
+    //    java.util.List<Integer> randomList = new ArrayList<>();
+    //    Random ran = new Random();
+    //    int newRandom = ran.nextInt(499);
 
     for (int i = 0; i < 49; i++) {
-//    	FOR TEST KEEPING THE SAME 50 APART
-    	
-//      while (randomList.indexOf(newRandom) != -1) {
-//        newRandom = ran.nextInt(499);
-//      }
-//      randomList.add(newRandom);
-//      appart.add(listApartment.get(randomList.get(newRandom)));
-    	appart.add(listApartment.get(i));
+      //    	FOR TEST KEEPING THE SAME 50 APART
+
+      //      while (randomList.indexOf(newRandom) != -1) {
+      //        newRandom = ran.nextInt(499);
+      //      }
+      //      randomList.add(newRandom);
+      //      appart.add(listApartment.get(randomList.get(newRandom)));
+      appart.add(listApartment.get(i));
     }
 
     appart.sort(
@@ -261,16 +261,16 @@ public class LayoutApartmentGUI {
             int[] selectedItems = listShell.getSelectionIndices();
 
             for (int loopIndex = 0; loopIndex < selectedItems.length; loopIndex++) {
-            	adresse.setText(
-                        listApp.get(listShell.getSelectionIndex()).getAddress().replace(", ", "\n"));
-                    surface.setText(
-                        " "
-                            + Math.round(listApp.get(listShell.getSelectionIndex()).getFloorArea())
-                            + "m²");
-                    prix.setText(
-                        " "
-                            + Math.round(listApp.get(listShell.getSelectionIndex()).getPricePerNight())
-                            + "€");
+              adresse.setText(
+                  listApp.get(listShell.getSelectionIndex()).getAddress().replace(", ", "\n"));
+              surface.setText(
+                  " "
+                      + Math.round(listApp.get(listShell.getSelectionIndex()).getFloorArea())
+                      + "m²");
+              prix.setText(
+                  " "
+                      + Math.round(listApp.get(listShell.getSelectionIndex()).getPricePerNight())
+                      + "€");
               nbrChambres.setText(" " + listApp.get(listShell.getSelectionIndex()).getNbBedrooms());
               nbBathroom.setText(" " + listApp.get(listShell.getSelectionIndex()).getNbBathrooms());
               wifi.setText(" " + listApp.get(listShell.getSelectionIndex()).getWifi());

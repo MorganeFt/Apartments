@@ -37,9 +37,8 @@ public class ProfileQuestionGUI {
   }
 
   /**
-   * JUST FOR TESTING MUST BE ADAPT 
-   * This is the main function, it asks Questions , AdaptAnswers and then displays the list of
-   * Apartments
+   * JUST FOR TESTING MUST BE ADAPT This is the main function, it asks Questions , AdaptAnswers and
+   * then displays the list of Apartments
    *
    * @param args
    */
