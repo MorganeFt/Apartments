@@ -6,8 +6,8 @@ import com.google.common.collect.Range;
 import io.github.oliviercailloux.y2018.apartments.valuefunction.Criterion;
 
 public class QuestionPriceArea {
-  int price;
-  int surface;
+  private int price;
+  private int surface;
   private final String question = "Would you pay %d€ more for %d m2 more?";
 
   /**
@@ -33,16 +33,16 @@ public class QuestionPriceArea {
   }
 
   /**
-   * Getter for attribute price
+   * Getter for attribute price Price unit: euro (€)
    *
-   * @return the price : question parameter
+   * @return the price: question parameter
    */
   public int getPrice() {
     return this.price;
   }
 
   /**
-   * Getter for attribute surface
+   * Getter for attribute surface Surface unit: square meter
    *
    * @return the surface : question parameter
    */
