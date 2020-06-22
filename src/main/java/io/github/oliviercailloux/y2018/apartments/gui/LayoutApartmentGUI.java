@@ -1,10 +1,9 @@
 package io.github.oliviercailloux.y2018.apartments.gui;
 
 import io.github.oliviercailloux.y2018.apartments.apartment.Apartment;
-import io.github.oliviercailloux.y2018.apartments.apartment.ApartmentFactory;
-import io.github.oliviercailloux.y2018.apartments.valuefunction.ApartmentValueFunction;
-import io.github.oliviercailloux.y2018.apartments.valuefunction.LinearValueFunction;
-import java.io.IOException;
+import io.github.oliviercailloux.y2018.apartments.apartment.json.JsonConvert;
+import io.github.oliviercailloux.y2018.apartments.valuefunction.LinearAVF;
+import java.util.ArrayList;
 import org.eclipse.swt.*;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -12,15 +11,15 @@ import org.eclipse.swt.layout.*;
 import org.eclipse.swt.widgets.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.w3c.dom.DOMException;
 
 /** @author AlWAZZAN & SAKHO */
 /** this class displays a list of apartments sorted according to the user's utilities */
 public class LayoutApartmentGUI {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(CreateApartmentGUI.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(LayoutApartmentGUI.class);
 
   java.util.List<Apartment> listApp;
+  LinearAVF linearAVF;
 
   Display display = new Display();
   Shell shell = new Shell(display);
@@ -28,27 +27,17 @@ public class LayoutApartmentGUI {
   /** add objects of apartments in a listShell */
   final List listShell = new List(shell, SWT.BORDER | SWT.MULTI | SWT.V_SCROLL);
 
-  public LayoutApartmentGUI() {
-    this(new ApartmentValueFunction());
+  public LayoutApartmentGUI(LinearAVF newLinearAVF) {
+    this.linearAVF = newLinearAVF;
+    this.listApp = getListSorted(linearAVF);
   }
 
-  public LayoutApartmentGUI(ApartmentValueFunction avf) {
-    listApp = getListSorted(avf);
-  }
-
-  /**
-   * General method which displays all the sorted apartment
-   *
-   * @param listApp the list of apartments to display
-   * @throws DOMException
-   * @throws IllegalAccessException
-   * @throws IOException
-   */
+  /** General method which displays all the sorted apartment */
   public void displayAppart() {
 
     addAppinListShell();
 
-    shell.setText("Sélection d'un appartement");
+    shell.setText("Filtered results");
 
     // create a gridLayout of 3 columns
     GridLayout gridLayout = new GridLayout();
@@ -61,12 +50,10 @@ public class LayoutApartmentGUI {
 
     // create a list label
     Label label = new Label(shell, SWT.NULL);
-    label.setText("Liste des appartements disponibles :");
+    label.setText("List of availabal apartments :");
     label.setLayoutData(new GridData(GridData.HORIZONTAL_ALIGN_CENTER));
-    new Label(shell, SWT.NULL);
 
     // define griddata with a verticalspan : 3 rows
-    new Label(shell, SWT.NULL);
     gridData = new GridData(GridData.FILL_BOTH);
     gridData.verticalSpan = 3;
 
@@ -76,7 +63,7 @@ public class LayoutApartmentGUI {
     listShell.setLayoutData(gridData);
 
     Group appartInfo = new Group(shell, SWT.NULL);
-    appartInfo.setText("Détail sur l'appartement sélectionné :");
+    appartInfo.setText("Detals on selected apartment :");
 
     gridLayout = new GridLayout();
     gridLayout.numColumns = 2;
@@ -86,34 +73,119 @@ public class LayoutApartmentGUI {
     gridData.horizontalSpan = 2;
     appartInfo.setLayoutData(gridData);
 
-    // beginning of creation of elements to display when we click on an apartement
+    // beginning of creation of elements to display when we click on an apartment
     Label adresse;
     Label surface;
     Label prix;
     Label nbrChambres;
+    Label wifi;
+    Label tv;
+    Label terrace;
+    Label nbBathroom;
 
-    new Label(appartInfo, SWT.NULL).setText("Adresse :");
+    Label wifiLabel;
+    Label tvLabel;
+    Label terraceLabel;
+    Label nbBathroomLabel;
+
+    GridData dataLabelAddress = new GridData(GridData.FILL_HORIZONTAL);
+    dataLabelAddress.widthHint = 250;
+    dataLabelAddress.heightHint = 45;
+
+    GridData dataLabel = new GridData(GridData.FILL_HORIZONTAL);
+    dataLabel.widthHint = 250;
+
+    GridData dataLabelHide = new GridData(GridData.FILL_HORIZONTAL);
+    dataLabel.widthHint = 250;
+
+    new Label(appartInfo, SWT.NULL).setText("Address :");
     adresse = new Label(appartInfo, SWT.SINGLE | SWT.BORDER);
-    adresse.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+    adresse.setLayoutData(dataLabelAddress);
 
     new Label(appartInfo, SWT.NULL).setText("Surface :");
     surface = new Label(appartInfo, SWT.SINGLE | SWT.BORDER);
-    surface.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+    surface.setLayoutData(dataLabel);
 
-    new Label(appartInfo, SWT.NULL).setText("Prix :");
+    new Label(appartInfo, SWT.NULL).setText("Price :");
     prix = new Label(appartInfo, SWT.SINGLE | SWT.BORDER);
-    prix.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+    prix.setLayoutData(dataLabel);
 
-    new Label(appartInfo, SWT.NULL).setText("Nombre de Chambres :");
+    new Label(appartInfo, SWT.NULL).setText("Number of bedrooms :");
     nbrChambres = new Label(appartInfo, SWT.SINGLE | SWT.BORDER);
-    nbrChambres.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+    nbrChambres.setLayoutData(dataLabel);
+
+    nbBathroomLabel = new Label(appartInfo, SWT.NULL);
+    nbBathroomLabel.setText("Number of bathrooms :");
+    nbBathroomLabel.setVisible(false);
+    nbBathroom = new Label(appartInfo, SWT.SINGLE | SWT.BORDER);
+    nbBathroom.setLayoutData(dataLabelHide);
+    nbBathroom.setVisible(false);
+
+    wifiLabel = new Label(appartInfo, SWT.NULL);
+    wifiLabel.setText("Wifi :");
+    wifiLabel.setVisible(false);
+    wifi = new Label(appartInfo, SWT.SINGLE | SWT.BORDER);
+    wifi.setLayoutData(dataLabelHide);
+    wifi.setVisible(false);
+
+    tvLabel = new Label(appartInfo, SWT.NULL);
+    tvLabel.setText("Tv :");
+    tvLabel.setVisible(false);
+    tv = new Label(appartInfo, SWT.SINGLE | SWT.BORDER);
+    tv.setLayoutData(dataLabelHide);
+    tv.setVisible(false);
+
+    terraceLabel = new Label(appartInfo, SWT.NULL);
+    terraceLabel.setText("Terrace :");
+    terraceLabel.setVisible(false);
+    terrace = new Label(appartInfo, SWT.SINGLE | SWT.BORDER);
+    terrace.setLayoutData(dataLabelHide);
+    terrace.setVisible(false);
 
     gridData = new GridData(GridData.HORIZONTAL_ALIGN_END);
     gridData.horizontalSpan = 3;
+    onClick(adresse, surface, prix, nbrChambres, nbBathroom, wifi, tv, terrace);
 
-    onClick(adresse, surface, prix, nbrChambres);
+    Button button = new Button(shell, SWT.NONE);
+    button.setText("View more");
+    button.setSize(100, 25);
+    button.addListener(
+        SWT.Selection,
+        new Listener() {
+          @Override
+          public void handleEvent(Event event) {
+            if (button.getText().equals("View more")) {
+              nbBathroomLabel.setVisible(true);
+              wifiLabel.setVisible(true);
+              tvLabel.setVisible(true);
+              terraceLabel.setVisible(true);
+              nbBathroom.setVisible(true);
+              wifi.setVisible(true);
+              tv.setVisible(true);
+              terrace.setVisible(true);
 
-    shell.setSize(1000, 550);
+              dataLabelHide.exclude = false;
+              appartInfo.pack();
+
+              button.setText("Hide fields");
+            } else {
+              nbBathroomLabel.setVisible(false);
+              wifiLabel.setVisible(false);
+              tvLabel.setVisible(false);
+              terraceLabel.setVisible(false);
+              nbBathroom.setVisible(false);
+              wifi.setVisible(false);
+              tv.setVisible(false);
+              terrace.setVisible(false);
+
+              dataLabelHide.exclude = true;
+
+              button.setText("View more");
+            }
+          }
+        });
+
+    shell.setSize(1180, 550);
     shell.open();
     LOGGER.info("The Shell was opened with success.");
 
@@ -130,30 +202,37 @@ public class LayoutApartmentGUI {
    * user
    *
    * @param avf a way to rate the apartments
-   * @throws IllegalAccessException
-   * @throws IOException
    */
-  private static java.util.List<Apartment> getListSorted(ApartmentValueFunction avf) {
+  private static java.util.List<Apartment> getListSorted(LinearAVF linearAVF) {
+    java.util.List<Apartment> listApartment = JsonConvert.getDefaultApartments();
+    java.util.List<Apartment> appart = new ArrayList<>();
+    //    java.util.List<Integer> randomList = new ArrayList<>();
+    //    Random ran = new Random();
+    //    int newRandom = ran.nextInt(499);
 
-    java.util.List<Apartment> appart = ApartmentFactory.generateRandomApartments(50);
+    for (int i = 0; i < 49; i++) {
+      //    	FOR TEST KEEPING THE SAME 50 APART
+
+      //      while (randomList.indexOf(newRandom) != -1) {
+      //        newRandom = ran.nextInt(499);
+      //      }
+      //      randomList.add(newRandom);
+      //      appart.add(listApartment.get(randomList.get(newRandom)));
+      appart.add(listApartment.get(i));
+    }
 
     appart.sort(
         (Apartment c, Apartment d) -> {
-          return -Double.compare(avf.getSubjectiveValue(c), avf.getSubjectiveValue(d));
+          return -Double.compare(linearAVF.getSubjectiveValue(c), linearAVF.getSubjectiveValue(d));
         });
 
     return appart;
   }
 
-  /**
-   * Method that adds available apartments in the shell list to display
-   *
-   * @param listApp2 the list of apartments to display
-   */
+  /** Method that adds available apartments in the shell list to display */
   public void addAppinListShell() {
     for (Apartment a : listApp) {
-      LOGGER.debug("Appart : " + a);
-      listShell.add("Titre: " + a.getTitle() + "\t" + " Adresse : " + a.getAddress());
+      listShell.add("Title: " + a.getTitle() + "\t" + " Address : " + a.getAddress());
     }
   }
 
@@ -162,10 +241,18 @@ public class LayoutApartmentGUI {
    * elements of the apartment
    *
    * @param listApp3 the list of apartments to display
-   * @param adresse, surface, prix, nbrChambres the parameters of apps to display when clicking on
-   *     an apartment
+   * @param address, surface, price, number of bedrooms the parameters of apps to display when
+   *     clicking on an apartment
    */
-  private void onClick(Label adresse, Label surface, Label prix, Label nbrChambres) {
+  private void onClick(
+      Label adresse,
+      Label surface,
+      Label prix,
+      Label nbrChambres,
+      Label nbBathroom,
+      Label wifi,
+      Label tv,
+      Label terrace) {
     // the listener when we click on an apartment
     SelectionAdapter selectApp =
         new SelectionAdapter() {
@@ -174,29 +261,24 @@ public class LayoutApartmentGUI {
             int[] selectedItems = listShell.getSelectionIndices();
 
             for (int loopIndex = 0; loopIndex < selectedItems.length; loopIndex++) {
-              adresse.setText(listApp.get(listShell.getSelectionIndex()).getAddress());
-              surface.setText(" " + listApp.get(listShell.getSelectionIndex()).getFloorArea());
-              prix.setText(" " + listApp.get(listShell.getSelectionIndex()).getPricePerNight());
+              adresse.setText(
+                  listApp.get(listShell.getSelectionIndex()).getAddress().replace(", ", "\n"));
+              surface.setText(
+                  " "
+                      + Math.round(listApp.get(listShell.getSelectionIndex()).getFloorArea())
+                      + "m²");
+              prix.setText(
+                  " "
+                      + Math.round(listApp.get(listShell.getSelectionIndex()).getPricePerNight())
+                      + "€");
               nbrChambres.setText(" " + listApp.get(listShell.getSelectionIndex()).getNbBedrooms());
+              nbBathroom.setText(" " + listApp.get(listShell.getSelectionIndex()).getNbBathrooms());
+              wifi.setText(" " + listApp.get(listShell.getSelectionIndex()).getWifi());
+              tv.setText(" " + listApp.get(listShell.getSelectionIndex()).getTele());
+              terrace.setText(" " + listApp.get(listShell.getSelectionIndex()).getTerrace());
             }
           }
         };
     listShell.addSelectionListener(selectApp);
-  }
-
-  /**
-   * This is the main function
-   *
-   * @param args
-   * @throws IllegalAccessException
-   * @throws DOMException
-   * @throws IOException
-   */
-  public static void main(String[] args) throws IllegalAccessException, IOException {
-    ApartmentValueFunction avf = new ApartmentValueFunction();
-    avf.setFloorAreaValueFunction(new LinearValueFunction(0, 300));
-
-    LayoutApartmentGUI layout = new LayoutApartmentGUI(avf);
-    layout.displayAppart();
   }
 }

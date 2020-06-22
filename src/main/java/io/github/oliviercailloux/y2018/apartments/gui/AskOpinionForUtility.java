@@ -1,9 +1,12 @@
 package io.github.oliviercailloux.y2018.apartments.gui;
 
+import com.google.common.base.Preconditions;
+import io.github.oliviercailloux.y2018.apartments.valuefunction.ApartmentValueFunction;
+import io.github.oliviercailloux.y2018.apartments.valuefunction.Criterion;
+import io.github.oliviercailloux.y2018.apartments.valuefunction.LinearValueFunction;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -19,12 +22,6 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import com.google.common.base.Preconditions;
-
-import io.github.oliviercailloux.y2018.apartments.valuefunction.ApartmentValueFunction;
-import io.github.oliviercailloux.y2018.apartments.valuefunction.Criterion;
-import io.github.oliviercailloux.y2018.apartments.valuefunction.LinearValueFunction;
 
 /** @author SALAME & SAKHO */
 
@@ -109,8 +106,8 @@ public class AskOpinionForUtility {
 
     LOGGER.info("Begining the Layout.");
 
-    LayoutApartmentGUI lay = new LayoutApartmentGUI(avf);
-    lay.displayAppart();
+    //    LayoutApartmentGUI lay = new LayoutApartmentGUI(avf);
+    //    lay.displayAppart();
   }
 
   /**
@@ -155,8 +152,8 @@ public class AskOpinionForUtility {
     // the listener when we click on finish
     Listener finishlistener =
         new Listener() {
-        @Override
-		public void handleEvent(Event event) {
+          @Override
+          public void handleEvent(Event event) {
 
             Preconditions.checkArgument(
                 !text1.getText().equals(""), "il faut saisir un chiffre :(");
@@ -228,8 +225,8 @@ public class AskOpinionForUtility {
     Label boo = new Label(shell, SWT.NULL);
     pressedButton.addSelectionListener(
         new SelectionAdapter() {
-        @Override
-		public void widgetSelected(SelectionEvent e) {
+          @Override
+          public void widgetSelected(SelectionEvent e) {
             Button source1 = (Button) e.widget;
 
             if (source1.getSelection() && !moreImportantAttributes.contains(source1.getText())) {
