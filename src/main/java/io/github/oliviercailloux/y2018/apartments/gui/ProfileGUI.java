@@ -28,7 +28,7 @@ public class ProfileGUI {
   private static final int MARGIN_IMAGES = 50;
   private static final int IMAGES_WIDTH = 200;
   private static final int IMAGES_HEIGHT = 250;
-  private Profile SELECTED_PROFILE = null;
+  private ProfileType SELECTED_PROFILE = null;
 
   private static final List<ProfileType> profileTypesAvailable =
       ProfileManager.getInstance().getAvailableProfileTypes();
@@ -36,7 +36,7 @@ public class ProfileGUI {
   Display display;
   Shell shell;
 
-  public ProfileGUI() {
+  public ProfileGUI() throws IOException {
     this.display = new Display();
     this.shell = new Shell(display);
     shell.setText("Profile selection - Questions");
@@ -46,6 +46,16 @@ public class ProfileGUI {
     shell.setLocation(x, y);
   }
 
+  public static void process() throws IOException {
+    ProfileGUI gui =  new ProfileGUI();
+    gui.askForProfile();
+    if(gui.SELECTED_PROFILE == null){
+      LOGGER.info("L'Opération a été annulée. \n Fin du ProfileGUI");
+      return;
+    }
+    ProfileQuestionGUI.process(gui.SELECTED_PROFILE);
+  }
+
   /**
    * This is the main function, it asks Questions , AdaptAnswers and then displays the list of
    * Apartments
@@ -53,10 +63,7 @@ public class ProfileGUI {
    * @param args
    */
   public static void main(String[] args) throws IOException {
-    ProfileGUI profileSelector = new ProfileGUI();
-    profileSelector.askForProfile();
-    //APPELER AUTRE GUI
-    LOGGER.info("Begining the Layout.");
+    ProfileGUI.process();
   }
 
   /**
@@ -89,7 +96,7 @@ public class ProfileGUI {
         Listener selectionlistener =
             event -> {
               shell.close();
-              SELECTED_PROFILE = ProfileManager.getInstance().getProfile(profileTypesAvailable.get(index));
+              SELECTED_PROFILE = profileTypesAvailable.get(index);
               LOGGER.info("Open Question GUI with Profile {}",profileName);
             };
         b.addListener(SWT.Selection, selectionlistener);

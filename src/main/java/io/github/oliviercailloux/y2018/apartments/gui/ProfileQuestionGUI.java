@@ -30,10 +30,10 @@ import org.slf4j.LoggerFactory;
 public class ProfileQuestionGUI {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(ProfileQuestionGUI.class);
+  private ProfileType profileTypeSelected;
 
   String trueQuestionPriceArea;
   String falseQuestionPriceArea;
-
   Display display;
   Shell shell;
 
@@ -42,6 +42,9 @@ public class ProfileQuestionGUI {
     this.falseQuestionPriceArea = "No";
     this.display = new Display();
     this.shell = new Shell(display);
+    int x = (display.getClientArea().width - shell.getSize().x) / 2;
+    int y = (display.getClientArea().height - shell.getSize().y) / 2;
+    shell.setLocation(x, y);
   }
 
   /**
@@ -51,14 +54,17 @@ public class ProfileQuestionGUI {
    * @param args
    */
   public static void main(String[] args) {
+    process(ProfileType.COUPLE);
+  }
 
-    ProfileQuestionGUI asker = new ProfileQuestionGUI();
-
-    ProfileType profileTypeSelected = ProfileType.COUPLE;
-    LinearAVF newLinearAVF = asker.askQuestions(profileTypeSelected);
-
-    LOGGER.info("Begining the Layout.");
-
+  /**
+   * Run a new instance of the GUI, display the question of the given ProfileType and give the
+   * generated linearAVF to LayoutApartmentGUI
+   * @param selected the given ProfileType
+   */
+  public static void process(ProfileType selected){
+    ProfileQuestionGUI prof = new ProfileQuestionGUI();
+    LinearAVF newLinearAVF = prof.askQuestions(selected);
     LayoutApartmentGUI lay = new LayoutApartmentGUI(newLinearAVF);
     lay.displayAppart();
   }
@@ -120,9 +126,6 @@ public class ProfileQuestionGUI {
     buttonchoix2.setText(falseQuestionPriceArea);
     buttonchoix2.setSelection(false);
 
-    Label labelAnswer = new Label(shell, SWT.NONE);
-    labelAnswer.setForeground(display.getSystemColor(SWT.COLOR_BLUE));
-
     buttonchoix1.addSelectionListener(
         new SelectionAdapter() {
 
@@ -131,8 +134,6 @@ public class ProfileQuestionGUI {
             Button source = (Button) e.widget;
 
             if (source.getSelection()) {
-              labelAnswer.setText("You are " + source.getText());
-              labelAnswer.pack();
               profileSelected.getMyQuestionPriceArea().resolve(profileSelected, true);
             }
           }
@@ -146,8 +147,6 @@ public class ProfileQuestionGUI {
             Button source = (Button) e.getSource();
 
             if (source.getSelection()) {
-              labelAnswer.setText("You are " + source.getText());
-              labelAnswer.pack();
               profileSelected.getMyQuestionPriceArea().resolve(profileSelected, false);
             }
           }
