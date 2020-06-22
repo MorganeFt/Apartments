@@ -1,6 +1,5 @@
 package io.github.oliviercailloux.y2018.apartments.gui;
 
-import io.github.oliviercailloux.y2018.apartments.valuefunction.profile.Profile;
 import io.github.oliviercailloux.y2018.apartments.valuefunction.profile.ProfileManager;
 import io.github.oliviercailloux.y2018.apartments.valuefunction.profile.ProfileType;
 import java.io.IOException;
@@ -47,9 +46,9 @@ public class ProfileGUI {
   }
 
   public static void process() throws IOException {
-    ProfileGUI gui =  new ProfileGUI();
+    ProfileGUI gui = new ProfileGUI();
     gui.askForProfile();
-    if(gui.SELECTED_PROFILE == null){
+    if (gui.SELECTED_PROFILE == null) {
       LOGGER.info("L'Opération a été annulée. \n Fin du ProfileGUI");
       return;
     }
@@ -72,17 +71,18 @@ public class ProfileGUI {
    */
   public void askForProfile() throws IOException {
     RowLayout rowLayout = new RowLayout(SWT.HORIZONTAL);
-    rowLayout.center=true;
-    rowLayout.marginLeft=MARGIN_HORIZONTAL;
-    rowLayout.marginRight=MARGIN_HORIZONTAL;
+    rowLayout.center = true;
+    rowLayout.marginLeft = MARGIN_HORIZONTAL;
+    rowLayout.marginRight = MARGIN_HORIZONTAL;
     rowLayout.marginTop = MARGIN_VERTICAL;
     rowLayout.marginBottom = MARGIN_VERTICAL;
-    rowLayout.spacing=MARGIN_IMAGES;
+    rowLayout.spacing = MARGIN_IMAGES;
     shell.setLayout(rowLayout);
     for (int i = 0; i < profileTypesAvailable.size(); i++) {
-      final int index=i;
-      final String profileName = profileTypesAvailable.get(i).name().substring(0,1).toUpperCase()+
-              profileTypesAvailable.get(i).name().substring(1).toUpperCase();
+      final int index = i;
+      final String profileName =
+          profileTypesAvailable.get(i).name().substring(0, 1).toUpperCase()
+              + profileTypesAvailable.get(i).name().substring(1).toUpperCase();
       try (InputStream f = ProfileGUI.class.getResourceAsStream(profileName + "Subtitle.png")) {
         Image image =
             new Image(
@@ -97,7 +97,7 @@ public class ProfileGUI {
             event -> {
               shell.close();
               SELECTED_PROFILE = profileTypesAvailable.get(index);
-              LOGGER.info("Open Question GUI with Profile {}",profileName);
+              LOGGER.info("Open Question GUI with Profile {}", profileName);
             };
         b.addListener(SWT.Selection, selectionlistener);
       }
@@ -113,5 +113,4 @@ public class ProfileGUI {
     display.dispose();
     LOGGER.info("The screen was closed with success.");
   }
-
 }

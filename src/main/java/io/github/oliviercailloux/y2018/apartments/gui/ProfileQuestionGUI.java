@@ -15,6 +15,7 @@ import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.RGB;
+import org.eclipse.swt.internal.win32.CERT_NAME_BLOB;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
@@ -36,6 +37,7 @@ public class ProfileQuestionGUI {
   String falseQuestionPriceArea;
   Display display;
   Shell shell;
+
 
   public ProfileQuestionGUI() {
     this.trueQuestionPriceArea = "Yes";
@@ -65,8 +67,7 @@ public class ProfileQuestionGUI {
   public static void process(ProfileType selected){
     ProfileQuestionGUI prof = new ProfileQuestionGUI();
     LinearAVF newLinearAVF = prof.askQuestions(selected);
-    LayoutApartmentGUI lay = new LayoutApartmentGUI(newLinearAVF);
-    lay.displayAppart();
+    LayoutApartmentGUI.process(newLinearAVF);
   }
 
   /**
@@ -89,10 +90,10 @@ public class ProfileQuestionGUI {
     final Group group = new Group(shell, SWT.NONE);
     group.setText("Profile selected : ");
     group.setLayout(new GridLayout(2, false));
-    
+
     Label imageLabel = new Label(group, SWT.NONE);
     Label imageLabelText = new Label(group, SWT.NONE);
-    
+
     try (InputStream f = ProfileQuestionGUI.class.getResourceAsStream(profileName + ".png")) {
       Image image =
           new Image(
@@ -100,7 +101,7 @@ public class ProfileQuestionGUI {
               new Image(this.display, f).getImageData().scaledTo(70, 70));
 
      imageLabel.setImage(image);
-      
+
     } catch (IOException e1) {
 		throw new IllegalArgumentException(e1);
 	}
@@ -125,7 +126,7 @@ public class ProfileQuestionGUI {
     Button buttonchoix2 = new Button(buttonGroup, SWT.RADIO);
     buttonchoix2.setText(falseQuestionPriceArea);
     buttonchoix2.setSelection(false);
-
+    final boolean[] result1 = new boolean[1];
     buttonchoix1.addSelectionListener(
         new SelectionAdapter() {
 
@@ -134,34 +135,29 @@ public class ProfileQuestionGUI {
             Button source = (Button) e.widget;
 
             if (source.getSelection()) {
-              profileSelected.getMyQuestionPriceArea().resolve(profileSelected, true);
+              result1[0] = true;
             }
           }
         });
 
     buttonchoix2.addSelectionListener(
         new SelectionAdapter() {
-
           @Override
           public void widgetSelected(SelectionEvent e) {
             Button source = (Button) e.getSource();
-
             if (source.getSelection()) {
-              profileSelected.getMyQuestionPriceArea().resolve(profileSelected, false);
+              result1[0] = false;
             }
           }
         });
 
     // the listener when we click on finish
     Listener finishlistener =
-        new Listener() {
-          @Override
-          public void handleEvent(Event event) {
-            shell.close();
-
-            LOGGER.info("ProfileQuestionGUI closed");
-          }
-        };
+            event -> {
+              shell.close();
+              profileSelected.getMyQuestionPriceArea().resolve(profileSelected,result1[0]);
+              LOGGER.info("ProfileQuestionGUI closed");
+            };
 
     // This is a submit button, it will close the shell when the user click on Submit
     final Button finish = new Button(shell, SWT.PUSH);

@@ -27,6 +27,11 @@ public class LayoutApartmentGUI {
   /** add objects of apartments in a listShell */
   final List listShell = new List(shell, SWT.BORDER | SWT.MULTI | SWT.V_SCROLL);
 
+
+  public static void process(LinearAVF lavf){
+    LayoutApartmentGUI gui = new LayoutApartmentGUI(lavf);
+    gui.displayAppart();
+  }
   public LayoutApartmentGUI(LinearAVF newLinearAVF) {
     this.linearAVF = newLinearAVF;
     this.listApp = getListSorted(linearAVF);
